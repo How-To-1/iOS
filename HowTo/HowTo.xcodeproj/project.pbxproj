@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */; };
 		2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB02458A12000B6BFC9 /* AppDelegate.swift */; };
 		2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */; };
 		2C696FB82458A12000B6BFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C696FB62458A12000B6BFC9 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tutorial+Convenience.swift"; sourceTree = "<group>"; };
 		2C696FAD2458A12000B6BFC9 /* HowTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C696FB02458A12000B6BFC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				99824F0C2458DF560065AB1B /* CoreDataStack.swift */,
 				99824F0A2458DE500065AB1B /* TutorialRepresentation.swift */,
 				99824F082458DDEC0065AB1B /* UserRepresentation.swift */,
+				2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */,
 				99824F0D2458DF560065AB1B /* CoreDataStack.swift in Sources */,
+				2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */,
 				2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */,
 				99824F092458DDEC0065AB1B /* UserRepresentation.swift in Sources */,
 				9966C9A72458DB0900AC0ABE /* Tutorials.xcdatamodeld in Sources */,
