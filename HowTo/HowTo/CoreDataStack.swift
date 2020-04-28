@@ -12,6 +12,8 @@ import CoreData
 class CoreDataStack {
     
     static let shared = CoreDataStack()
+    
+    private init() {}
 
     lazy var container: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Tutorials")
@@ -26,5 +28,16 @@ class CoreDataStack {
     
     var mainContext: NSManagedObjectContext {
         return container.viewContext
+    }
+    
+    func save(context: NSManagedObjectContext = CoreDataTask.shared.mainContext) {
+      context.performAndWait {
+        do {
+          try context.save()
+        } catch {
+          NSLog("Error saving to persistent stores: \(error)")
+          context.reset()
+        }
+      }
     }
 }
