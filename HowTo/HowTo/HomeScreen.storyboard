@@ -73,9 +73,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-ja-Lk4">
-                                <rect key="frame" x="359" y="68" width="35" height="21"/>
-                                <state key="normal" title="Filter"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-ja-Lk4">
+                                <rect key="frame" x="372" y="68" width="22" height="21"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29w-ap-oX3">
                                 <rect key="frame" x="176" y="68" width="66" height="21"/>
@@ -156,5 +158,6 @@
     </scenes>
     <resources>
         <image name="Coronavirus" width="128" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
