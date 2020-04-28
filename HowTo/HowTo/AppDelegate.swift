@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  HowTo
 //
-//  Created by Dahna on 4/27/20.
-//  Copyright © 2020 Dahna Buenrostro. All rights reserved.
+//  Created by Tobi Kuyoro on 28/04/2020.
+//  Copyright © 2020 Tobi Kuyoro. All rights reserved.
 //
 
 import UIKit
