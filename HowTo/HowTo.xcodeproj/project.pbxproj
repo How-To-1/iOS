@@ -13,6 +13,7 @@
 		9961B2D02457781F002E83DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9961B2CF2457781F002E83DD /* Assets.xcassets */; };
 		9961B2D32457781F002E83DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9961B2D12457781F002E83DD /* LaunchScreen.storyboard */; };
 		996A813F24588690002E1A7B /* LoginStoryboardDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */; };
+		99A8D39A245896E400E23C51 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99A8D399245896E400E23C51 /* HomeScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9961B2D22457781F002E83DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9961B2D42457781F002E83DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboardDB.storyboard; sourceTree = "<group>"; };
+		99A8D399245896E400E23C51 /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				9961B2D12457781F002E83DD /* LaunchScreen.storyboard */,
 				9961B2D42457781F002E83DD /* Info.plist */,
 				996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */,
+				99A8D399245896E400E23C51 /* HomeScreen.storyboard */,
 			);
 			path = HowTo;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A8D39A245896E400E23C51 /* HomeScreen.storyboard in Resources */,
 				9961B2D32457781F002E83DD /* LaunchScreen.storyboard in Resources */,
 				9961B2D02457781F002E83DD /* Assets.xcassets in Resources */,
 				9961B2CE2457781D002E83DD /* Main.storyboard in Resources */,
