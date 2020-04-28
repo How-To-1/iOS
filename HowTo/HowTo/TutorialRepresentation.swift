@@ -11,6 +11,6 @@ import Foundation
 struct TutorialRepresentation: Codable {
     var title: String
     var guide: String
-    var Category: String
-    var id: UUID
+    var category: String
+    var identifier: UUID
 }
