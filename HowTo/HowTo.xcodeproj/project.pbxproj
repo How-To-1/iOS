@@ -12,6 +12,7 @@
 		9961B2CE2457781D002E83DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9961B2CC2457781D002E83DD /* Main.storyboard */; };
 		9961B2D02457781F002E83DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9961B2CF2457781F002E83DD /* Assets.xcassets */; };
 		9961B2D32457781F002E83DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9961B2D12457781F002E83DD /* LaunchScreen.storyboard */; };
+		996A813F24588690002E1A7B /* LoginStoryboardDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9961B2CF2457781F002E83DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9961B2D22457781F002E83DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9961B2D42457781F002E83DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboardDB.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				9961B2CF2457781F002E83DD /* Assets.xcassets */,
 				9961B2D12457781F002E83DD /* LaunchScreen.storyboard */,
 				9961B2D42457781F002E83DD /* Info.plist */,
+				996A813E24588690002E1A7B /* LoginStoryboardDB.storyboard */,
 			);
 			path = HowTo;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 				9961B2D32457781F002E83DD /* LaunchScreen.storyboard in Resources */,
 				9961B2D02457781F002E83DD /* Assets.xcassets in Resources */,
 				9961B2CE2457781D002E83DD /* Main.storyboard in Resources */,
+				996A813F24588690002E1A7B /* LoginStoryboardDB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

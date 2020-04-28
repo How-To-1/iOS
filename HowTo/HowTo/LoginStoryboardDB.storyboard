@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up or Log In-->
+        <scene sceneID="PRn-Fd-TsU">
+            <objects>
+                <viewController storyboardIdentifier="Login" id="eKX-5U-S6N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TR8-md-XbD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="APf-vA-ZPS">
+                                <rect key="frame" x="15" y="74" width="384" height="260"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="rXV-0p-nMw"/>
+                                </constraints>
+                                <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="9" id="6J5-Gw-DI9">
+                                    <rect key="frame" x="0.0" y="0.0" width="384" height="263"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yRV-B0-ayV">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="32"/>
+                                            <segments>
+                                                <segment title="Sign Up"/>
+                                                <segment title="Log In"/>
+                                            </segments>
+                                        </segmentedControl>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GbJ-vZ-vaI">
+                                            <rect key="frame" x="0.0" y="58.5" width="384" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d5y-AX-bM2">
+                                            <rect key="frame" x="0.0" y="119.5" width="384" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="Hbm-DD-L6x">
+                                            <rect key="frame" x="0.0" y="181" width="384" height="25"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be A Creator?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j01-h7-7rJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00u-lC-OMT">
+                                                    <rect key="frame" x="331.5" y="0.0" width="52.5" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <state key="normal" title="Button" image="checkmark.square" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Chs-Jg-bDc"/>
+                                                <constraint firstAttribute="height" constant="25" id="bdd-gj-nQL"/>
+                                            </constraints>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sj3-Fz-4gm">
+                                            <rect key="frame" x="0.0" y="233" width="384" height="30"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="rvN-IE-eAF"/>
+                                            </constraints>
+                                            <state key="normal" title="Log In/Sign Up">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Hbm-DD-L6x" secondAttribute="trailing" id="5Kb-Nh-pLN"/>
+                                        <constraint firstItem="Hbm-DD-L6x" firstAttribute="leading" secondItem="6J5-Gw-DI9" secondAttribute="leading" id="qpk-eF-9Jg"/>
+                                    </constraints>
+                                </stackView>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="APf-vA-ZPS" firstAttribute="leading" secondItem="pej-py-xIA" secondAttribute="leading" constant="15" id="5zU-SZ-aD9"/>
+                            <constraint firstItem="APf-vA-ZPS" firstAttribute="top" secondItem="pej-py-xIA" secondAttribute="top" constant="30" id="NzM-d5-TQU"/>
+                            <constraint firstItem="pej-py-xIA" firstAttribute="trailing" secondItem="APf-vA-ZPS" secondAttribute="trailing" constant="15" id="oET-dU-F7f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pej-py-xIA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign Up or Log In" largeTitleDisplayMode="never" id="8Ag-nn-Zy6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewQ-jA-wXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4192.753623188406" y="970.98214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

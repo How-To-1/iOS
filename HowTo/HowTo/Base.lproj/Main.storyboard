@@ -8,93 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up or Log In-->
-        <scene sceneID="ovY-Sn-olm">
-            <objects>
-                <viewController id="vtC-eH-Taa" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nmt-Do-uSc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a9S-2r-8gf">
-                                <rect key="frame" x="15" y="74" width="384" height="260"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="d4e-gf-bFx"/>
-                                </constraints>
-                                <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="9" id="tQu-WY-sTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="384" height="263"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Niv-7n-kIF">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="32"/>
-                                            <segments>
-                                                <segment title="Sign Up"/>
-                                                <segment title="Log In"/>
-                                            </segments>
-                                        </segmentedControl>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4G-rJ-cWH">
-                                            <rect key="frame" x="0.0" y="58.5" width="384" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4O7-Jk-Gp4">
-                                            <rect key="frame" x="0.0" y="119.5" width="384" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="KRO-oD-cNf">
-                                            <rect key="frame" x="0.0" y="181" width="384" height="25"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be A Creator?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-0l-8B0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkK-JL-hNp">
-                                                    <rect key="frame" x="331.5" y="0.0" width="52.5" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <state key="normal" title="Button" image="checkmark.square" catalog="system"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="0y4-Vo-kbO"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="3F5-sr-cwe"/>
-                                            </constraints>
-                                        </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNZ-cl-1jR">
-                                            <rect key="frame" x="0.0" y="233" width="384" height="30"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="wMQ-kz-ME9"/>
-                                            </constraints>
-                                            <state key="normal" title="Log In/Sign Up">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="KRO-oD-cNf" firstAttribute="leading" secondItem="tQu-WY-sTy" secondAttribute="leading" id="Nia-1L-1YU"/>
-                                        <constraint firstAttribute="trailing" secondItem="KRO-oD-cNf" secondAttribute="trailing" id="a47-ap-2s6"/>
-                                    </constraints>
-                                </stackView>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="a9S-2r-8gf" firstAttribute="leading" secondItem="Igv-hL-lhY" secondAttribute="leading" constant="15" id="Ddc-bl-4U7"/>
-                            <constraint firstItem="a9S-2r-8gf" firstAttribute="top" secondItem="Igv-hL-lhY" secondAttribute="top" constant="30" id="o6O-8s-434"/>
-                            <constraint firstItem="Igv-hL-lhY" firstAttribute="trailing" secondItem="a9S-2r-8gf" secondAttribute="trailing" constant="15" id="z6K-vk-uBV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Igv-hL-lhY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sign Up or Log In" largeTitleDisplayMode="never" id="dGq-9h-eR4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Clk-5s-G2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4192.753623188406" y="970.98214285714278"/>
-        </scene>
         <!--Favorites-->
         <scene sceneID="XG3-zT-mQN">
             <objects>
@@ -168,12 +81,22 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="vtC-eH-Taa" kind="presentation" modalPresentationStyle="fullScreen" id="fGF-pz-rD9"/>
+                        <segue destination="6sE-Wi-j1z" kind="show" id="fxn-bc-BUO"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWr-v8-ZE2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4194" y="211"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="vEc-In-KPc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginStoryboardDB" referencedIdentifier="Login" id="6sE-Wi-j1z" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wqv-Rd-63o"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZU-ld-qWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4193" y="634"/>
         </scene>
         <!--Your Tutorials-->
         <scene sceneID="ipd-6b-VLr">
@@ -485,7 +408,4 @@
             <point key="canvasLocation" x="3306" y="211"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checkmark.square" catalog="system" width="128" height="114"/>
-    </resources>
 </document>
