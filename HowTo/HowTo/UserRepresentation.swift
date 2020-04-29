@@ -11,6 +11,4 @@ import Foundation
 struct UserRepresentation: Codable {
     var username: String
     var password: String
-    var isCreator: Bool
-    var isRegistered: Bool
 }
