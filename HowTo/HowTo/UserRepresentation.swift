@@ -9,8 +9,6 @@
 import Foundation
 
 struct UserRepresentation: Codable {
-    var email: String
+    var username: String
     var password: String
-    var isCreator: Bool
-    var isRegistered: Bool
 }
