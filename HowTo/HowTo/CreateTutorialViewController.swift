@@ -33,7 +33,19 @@ class CreateTutorialViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let title = titleTextField.text,
+            let categoryString = categoryTextField.text,
+            let category = Category(rawValue: categoryString),
+            let guide = textView.text else { return }
 
+        let dateNow = Date()
+        let timeInterval = dateNow.timeIntervalSince1970
+        let identifier = Int16(timeInterval)
+
+        let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
+        tutorialController?.sendTutorialToServer(tutorial: tutorial)
+
+        navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Actions
