@@ -25,9 +25,8 @@ class TutorialController {
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     init() {
-        
+        fetchTutorialFromServer()
     }
-
 
     // MARK: - Networking Methods
     
@@ -172,7 +171,7 @@ class TutorialController {
 
     // MARK: - CRUD
     
-    func createTutorial(title: String, guide: String, category: String, identifier: Int16)  {
+    func createTutorial(title: String, guide: String, category: String, identifier: Int16) {
         guard let categoryRaw = Category(rawValue: category) else { return }
         
         let tutorial = Tutorial(title: title, guide: guide, category: categoryRaw, identifier: identifier)
@@ -197,5 +196,4 @@ class TutorialController {
         CoreDataStack.shared.mainContext.delete(tutorial)
         CoreDataStack.shared.save()
     }
-
 }

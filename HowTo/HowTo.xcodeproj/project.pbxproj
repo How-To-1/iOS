@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */; };
 		2C106FCE245900350046A91A /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C106FCD245900350046A91A /* User+Convenience.swift */; };
+		2C43351C2459FB1900485A74 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C43351B2459FB1900485A74 /* UserController.swift */; };
 		2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB02458A12000B6BFC9 /* AppDelegate.swift */; };
 		2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */; };
 		2C696FB82458A12000B6BFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C696FB62458A12000B6BFC9 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tutorial+Convenience.swift"; sourceTree = "<group>"; };
 		2C106FCD245900350046A91A /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		2C43351B2459FB1900485A74 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		2C696FAD2458A12000B6BFC9 /* HowTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C696FB02458A12000B6BFC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				99AAE4A82459095500424019 /* TutorialController.swift */,
+				2C43351B2459FB1900485A74 /* UserController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -210,7 +213,6 @@
 				2C696FA92458A12000B6BFC9 /* Sources */,
 				2C696FAA2458A12000B6BFC9 /* Frameworks */,
 				2C696FAB2458A12000B6BFC9 /* Resources */,
-				58AD1761319F502FD06E5492 /* [CP] Embed Pods Frameworks */,
 				2C7646F82458BFF000AE26EB /* ShellScript */,
 			);
 			buildRules = (
@@ -292,23 +294,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		58AD1761319F502FD06E5492 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A60E261C3970BDEBDF2117B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +325,7 @@
 			files = (
 				2C106FCE245900350046A91A /* User+Convenience.swift in Sources */,
 				2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */,
+				2C43351C2459FB1900485A74 /* UserController.swift in Sources */,
 				99824F0D2458DF560065AB1B /* CoreDataStack.swift in Sources */,
 				2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */,
 				2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */,
