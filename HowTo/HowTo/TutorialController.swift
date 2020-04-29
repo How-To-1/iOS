@@ -28,7 +28,6 @@ class TutorialController {
         
     }
 
-    // MARK: - Authentication Methods
 
     // MARK: - Networking Methods
     
@@ -182,5 +181,21 @@ class TutorialController {
         CoreDataStack.shared.save()
     }
     
+    func update(tutorial: Tutorial, title: String, guide: String, category: String, identifier: Int16) {
+        
+        tutorial.title = title
+        tutorial.guide = guide
+        tutorial.category = category
+        tutorial.identifier = identifier
+        
+        updateTutorials(tutorial: tutorial)
+        CoreDataStack.shared.save()
+    }
+    
+    func delete(tutorial: Tutorial) {
+        deleteTaskFromServer(tutorial: tutorial)
+        CoreDataStack.shared.mainContext.delete(tutorial)
+        CoreDataStack.shared.save()
+    }
 
 }
