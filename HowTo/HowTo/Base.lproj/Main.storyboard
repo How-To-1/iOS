@@ -29,14 +29,14 @@
             <objects>
                 <viewController id="RKI-bD-0ht" customClass="RegisterViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JZg-zZ-79z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="FF7-VS-cyN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLD-oZ-b4b">
-                                <rect key="frame" x="40" y="681" width="334" height="55"/>
+                                <rect key="frame" x="40" y="735" width="334" height="55"/>
                                 <color key="backgroundColor" red="0.42352941179999998" green="0.25490196079999999" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="0Et-uU-BmB"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b24-6y-bO7">
-                                <rect key="frame" x="79" y="746" width="256.5" height="32"/>
+                                <rect key="frame" x="79" y="800" width="256.5" height="32"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbJ-6o-97S">
                                         <rect key="frame" x="0.0" y="0.0" width="178.5" height="32"/>
@@ -72,7 +72,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-2M-mkR">
-                                <rect key="frame" x="40" y="423" width="334" height="108"/>
+                                <rect key="frame" x="40" y="477" width="334" height="108"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-gB-5Sb">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
@@ -87,7 +87,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOWTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-6D-bEW">
-                                <rect key="frame" x="141.5" y="190" width="131.5" height="67"/>
+                                <rect key="frame" x="141.5" y="234" width="131.5" height="67"/>
                                 <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -329,7 +329,7 @@
                         <outlet property="categoryTextField" destination="9jP-f0-qYr" id="7q3-jW-iSB"/>
                         <outlet property="textView" destination="w4I-OJ-CkH" id="sDV-PU-5zI"/>
                         <outlet property="titleTextField" destination="XAd-dg-kFH" id="KhU-tp-6F2"/>
-                        <segue destination="RKI-bD-0ht" kind="presentation" id="msv-HT-c8D"/>
+                        <segue destination="RKI-bD-0ht" kind="presentation" identifier="ModalOnboardingSegue" modalPresentationStyle="fullScreen" id="msv-HT-c8D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp6-9T-NUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

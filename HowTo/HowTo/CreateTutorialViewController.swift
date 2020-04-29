@@ -20,6 +20,7 @@ class CreateTutorialViewController: UIViewController {
 
     var tutorial: Tutorial?
     var tutorialController: TutorialController?
+    var userController: UserController?
     var selectedCategory: String?
     let categories = ["Automotive", "Computing", "Food", "Home"]
 
@@ -30,6 +31,15 @@ class CreateTutorialViewController: UIViewController {
         udpdateTextView()
         createTapGesture()
         createCategoryPicker()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let userController = userController else { return }
+
+        if userController.bearer == nil {
+            performSegue(withIdentifier: "ModalOnboardingSegue", sender: self)
+        }
     }
 
     // MARK: - IBActions
