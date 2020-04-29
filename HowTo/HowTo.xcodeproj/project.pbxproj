@@ -28,6 +28,7 @@
 		99824F0B2458DE500065AB1B /* TutorialRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99824F0A2458DE500065AB1B /* TutorialRepresentation.swift */; };
 		99824F0D2458DF560065AB1B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99824F0C2458DF560065AB1B /* CoreDataStack.swift */; };
 		99AAE4A92459095500424019 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AAE4A82459095500424019 /* TutorialController.swift */; };
+		99BA1BD6245A2645000768F9 /* TutorialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BA1BD5245A2645000768F9 /* TutorialTableViewCell.swift */; };
 		EF58345285F435652FE3C695 /* Pods_HowTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59905A12DE78EEA66077DE52 /* Pods_HowTo.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		99824F0A2458DE500065AB1B /* TutorialRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialRepresentation.swift; sourceTree = "<group>"; };
 		99824F0C2458DF560065AB1B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		99AAE4A82459095500424019 /* TutorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
+		99BA1BD5245A2645000768F9 /* TutorialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		2C7646EA2458AD1700AE26EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				99BA1BD5245A2645000768F9 /* TutorialTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				99824F092458DDEC0065AB1B /* UserRepresentation.swift in Sources */,
 				9966C9A72458DB0900AC0ABE /* Tutorials.xcdatamodeld in Sources */,
 				99824F0B2458DE500065AB1B /* TutorialRepresentation.swift in Sources */,
+				99BA1BD6245A2645000768F9 /* TutorialTableViewCell.swift in Sources */,
 				99AAE4A92459095500424019 /* TutorialController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
