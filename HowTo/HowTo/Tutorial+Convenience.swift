@@ -20,8 +20,7 @@ extension Tutorial {
     var tutorialRepresentation: TutorialRepresentation? {
         guard let title = title,
             let guide = guide,
-            let category = category,
-            let identifier = identifier else { return nil }
+            let category = category else { return nil }
 
         return TutorialRepresentation(title: title, guide: guide, category: category, identifier: identifier)
     }
@@ -29,7 +28,7 @@ extension Tutorial {
     @discardableResult convenience init(title: String,
                                         guide: String,
                                         category: Category,
-                                        identifier: UUID = UUID(),
+                                        identifier: Int16
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.title = title
@@ -45,6 +44,7 @@ extension Tutorial {
         self.init(title: tutorialRepresentation.title,
                   guide: tutorialRepresentation.guide,
                   category: category,
+                  identifier: identifier,
                   context: context)
     }
 }

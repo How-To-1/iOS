@@ -98,6 +98,36 @@ class TutorialController {
         }.resume()
     }
     
+    func updateTutorials(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+       
+        let identifier = tutorial.identifier
+        
+        let requestURL = baseURL.appendingPathComponent("api/guides/\(identifier)")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        
+        do {
+            guard let representation = tutorial.tutorialRepresentation else {
+                completion(.failure(.noRep))
+                return
+            }
+            request.httpBody = try JSONEncoder().encode(representation)
+        } catch {
+            NSLog("Error encoding tutorial \(tutorial): \(error)")
+            completion(.failure(.otherError))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                NSLog("Error sending tutorial to server: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            completion(.success(true))
+        }.resume()
+    }
+    
     private func updateTutorials(with representations: [TutorialRepresentation]) throws {
         
     }

@@ -12,5 +12,5 @@ struct TutorialRepresentation: Codable {
     var title: String
     var guide: String
     var category: String
-    var identifier: UUID
+    var identifier: Int16
 }
