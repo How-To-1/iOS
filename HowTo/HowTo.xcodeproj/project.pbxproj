@@ -149,7 +149,6 @@
 				99824F082458DDEC0065AB1B /* UserRepresentation.swift */,
 				2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */,
 				2C106FCD245900350046A91A /* User+Convenience.swift */,
-				99AAE4A82459095500424019 /* TutorialController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -164,6 +163,7 @@
 		2C7646EB2458AD2800AE26EB /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99AAE4A82459095500424019 /* TutorialController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";

@@ -45,7 +45,7 @@ class TutorialController {
             }
             do {
                 let tutorialRepresentations = Array(try JSONDecoder().decode([String: TutorialRepresentation].self, from: data).values)
-                try self.updateTutorials(with tutorialRepresentations)
+                try self.updateTutorials(with: tutorialRepresentations)
                 completion(.success(true))
             } catch {
                 NSLog("Error decoding tutorials from server: \(error)")
@@ -76,6 +76,21 @@ class TutorialController {
         URLSession.shared.dataTask(with: request) { _, _, error in
             if let error = error {
                 NSLog("Error sending tutorial to server: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            completion(.success(true))
+        }.resume()
+    }
+    
+    func deleteTaskFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+        let requestURL = baseURL.appendingPathComponent("api/guides")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "DELETE"
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                NSLog("Error deleting tutorial from server: \(error)")
                 completion(.failure(.otherError))
                 return
             }
