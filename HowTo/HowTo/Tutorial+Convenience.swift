@@ -28,7 +28,7 @@ extension Tutorial {
     @discardableResult convenience init(title: String,
                                         guide: String,
                                         category: Category,
-                                        identifier: Int16
+                                        identifier: Int16,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.title = title
@@ -44,7 +44,7 @@ extension Tutorial {
         self.init(title: tutorialRepresentation.title,
                   guide: tutorialRepresentation.guide,
                   category: category,
-                  identifier: identifier,
+                  identifier: tutorialRepresentation.identifier,
                   context: context)
     }
 }

@@ -102,7 +102,11 @@ class TutorialController {
        
         let identifier = tutorial.identifier
         
-        let requestURL = baseURL.appendingPathComponent("api/guides/\(identifier)")
+        let requestURL = baseURL
+            .appendingPathComponent("api")
+            .appendingPathComponent("guides")
+            .appendingPathComponent("\(identifier)")
+
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
         

@@ -19,7 +19,7 @@ extension User {
 
     @discardableResult convenience init(username: String,
                                         password: String,
-                                        identifier: Int16
+                                        identifier: Int16,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.username = username
