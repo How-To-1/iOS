@@ -27,6 +27,10 @@ class TutorialController {
     init() {
         
     }
+
+    // MARK: - Authentication Methods
+
+    // MARK: - Networking Methods
     
     func fetchTutorialFromServer(completion: @escaping CompletionHandler = { _ in
         }) {
@@ -43,6 +47,7 @@ class TutorialController {
                 completion(.failure(.noData))
                 return
             }
+            
             do {
                 let tutorialRepresentations = Array(try JSONDecoder().decode([String: TutorialRepresentation].self, from: data).values)
                 try self.updateTutorials(with: tutorialRepresentations)
@@ -88,7 +93,7 @@ class TutorialController {
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { _, _, error in
             if let error = error {
                 NSLog("Error deleting tutorial from server: \(error)")
                 completion(.failure(.otherError))
@@ -99,10 +104,14 @@ class TutorialController {
     }
     
     func updateTutorials(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
-       
+
         let identifier = tutorial.identifier
         
-        let requestURL = baseURL.appendingPathComponent("api/guides/\(identifier)")
+        let requestURL = baseURL
+            .appendingPathComponent("api")
+            .appendingPathComponent("guides")
+            .appendingPathComponent("\(identifier)")
+
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
         
@@ -118,7 +127,7 @@ class TutorialController {
             return
         }
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { _, _, error in
             if let error = error {
                 NSLog("Error sending tutorial to server: \(error)")
                 completion(.failure(.otherError))
@@ -129,7 +138,38 @@ class TutorialController {
     }
     
     private func updateTutorials(with representations: [TutorialRepresentation]) throws {
-        
+        let identifierToFetch = representations.compactMap { $0.identifier }
+        let representationsByID = Dictionary(uniqueKeysWithValues: zip(identifierToFetch, representations))
+        var tutorialsToCreate = representationsByID
+
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        context.performAndWait {
+            do {
+                let fetchRequest: NSFetchRequest<Tutorial> = Tutorial.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "id IN %@", identifierToFetch)
+
+                let existingTutorials = try context.fetch(fetchRequest)
+
+                for tutorial in existingTutorials {
+                    let identifier = tutorial.identifier
+                    guard let representation = representationsByID[identifier] else { continue }
+                    tutorial.title = representation.title
+                    tutorial.guide = representation.guide
+                    tutorial.category = representation.category
+
+                    tutorialsToCreate.removeValue(forKey: identifier)
+                }
+
+                for representation in tutorialsToCreate.values {
+                    Tutorial(tutorialRepresentation: representation, context: context)
+                }
+
+                CoreDataStack.shared.save(context: context)
+            } catch {
+                NSLog("Error fetching tutorials from persistent stores: \(error)")
+            }
+        }
     }
-    
+
+    // MARK: - CRUD
 }
