@@ -27,7 +27,8 @@ class CreateTutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createTapGesture()
+        createCategoryPicker()
     }
 
     // MARK: - IBActions
@@ -50,10 +51,44 @@ class CreateTutorialViewController: UIViewController {
 
     // MARK: - Actions
 
+    private func createCategoryPicker() {
+        let categoryPicker = UIPickerView()
+        categoryPicker.delegate = self
+        categoryPicker.backgroundColor = .clear
+        categoryTextField.inputView = categoryPicker
+    }
+
+    private func createTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    }
+}
+
+extension CreateTutorialViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedCategory = categories[row]
+        categoryTextField.text = selectedCategory
     }
 }
