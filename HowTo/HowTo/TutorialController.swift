@@ -172,4 +172,15 @@ class TutorialController {
     }
 
     // MARK: - CRUD
+    
+    func createTutorial(title: String, guide: String, category: String, identifier: Int16)  {
+        guard let categoryRaw = Category(rawValue: category) else { return }
+        
+        let tutorial = Tutorial(title: title, guide: guide, category: categoryRaw, identifier: identifier)
+        
+        sendTutorialToServer(tutorial: tutorial)
+        CoreDataStack.shared.save()
+    }
+    
+
 }
