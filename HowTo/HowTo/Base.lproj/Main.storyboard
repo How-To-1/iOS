@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="5051" y="-1368"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Home Screen Table View Controller-->
         <scene sceneID="C0x-4y-meo">
             <objects>
-                <tableViewController id="Ilr-ZU-2jn" sceneMemberID="viewController">
+                <tableViewController id="Ilr-ZU-2jn" customClass="HomeScreenTableViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UpV-pd-wgF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,10 +191,19 @@
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="kgT-Yg-9Aq"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AuH-eK-dhh">
                             <connections>
+                                <action selector="addButtonTapped:" destination="Ilr-ZU-2jn" id="m4V-x5-FqP"/>
                                 <segue destination="Ux6-Bg-n7h" kind="show" id="sNg-Dr-3E4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="AuH-eK-dhh" id="TUI-4P-PCO"/>
+                        <outlet property="categoryImage" destination="OTF-J3-tk4" id="8e5-UV-nCS"/>
+                        <outlet property="categoryLabel" destination="qMm-xp-dL8" id="Jat-a4-0Fc"/>
+                        <outlet property="guideTitleLabel" destination="maB-rv-srL" id="Ae5-GW-kxg"/>
+                        <outlet property="searchBar" destination="f9p-dS-7hG" id="eoR-w5-wyv"/>
+                        <outlet property="signOutButton" destination="kgT-Yg-9Aq" id="wEZ-ye-h6s"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfK-n5-8Vk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
