@@ -198,9 +198,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="AuH-eK-dhh" id="TUI-4P-PCO"/>
-                        <outlet property="categoryImage" destination="OTF-J3-tk4" id="8e5-UV-nCS"/>
-                        <outlet property="categoryLabel" destination="qMm-xp-dL8" id="Jat-a4-0Fc"/>
-                        <outlet property="guideTitleLabel" destination="maB-rv-srL" id="Ae5-GW-kxg"/>
                         <outlet property="searchBar" destination="f9p-dS-7hG" id="eoR-w5-wyv"/>
                         <outlet property="signOutButton" destination="kgT-Yg-9Aq" id="wEZ-ye-h6s"/>
                     </connections>
@@ -223,8 +220,8 @@
                                     <constraint firstAttribute="height" constant="277" id="3x9-oL-3Iz"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Treat Coronavirus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdX-pj-oO7">
-                                <rect key="frame" x="58" y="410" width="298" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Treat Coronavirus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PdX-pj-oO7">
+                                <rect key="frame" x="20" y="410" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="Play-Bold" family="Play" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -234,11 +231,11 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <attributes>
                                             <color key="NSColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" metaFont="system" size="20"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -249,9 +246,9 @@
                         <constraints>
                             <constraint firstItem="RIn-5t-ovh" firstAttribute="bottom" secondItem="G2F-cJ-gpp" secondAttribute="bottom" id="5Um-rj-9BV"/>
                             <constraint firstItem="RIn-5t-ovh" firstAttribute="top" secondItem="PdX-pj-oO7" secondAttribute="bottom" constant="20" id="N4T-TR-rQI"/>
-                            <constraint firstItem="G2F-cJ-gpp" firstAttribute="trailing" secondItem="PdX-pj-oO7" secondAttribute="trailing" constant="58" id="Sr9-sY-fri"/>
+                            <constraint firstItem="G2F-cJ-gpp" firstAttribute="trailing" secondItem="PdX-pj-oO7" secondAttribute="trailing" constant="20" id="Sr9-sY-fri"/>
                             <constraint firstItem="Zjx-mG-qUK" firstAttribute="top" secondItem="G2F-cJ-gpp" secondAttribute="top" id="U5F-po-a1K"/>
-                            <constraint firstItem="PdX-pj-oO7" firstAttribute="leading" secondItem="G2F-cJ-gpp" secondAttribute="leading" constant="58" id="YMW-Nt-9Lo"/>
+                            <constraint firstItem="PdX-pj-oO7" firstAttribute="leading" secondItem="G2F-cJ-gpp" secondAttribute="leading" constant="20" id="YMW-Nt-9Lo"/>
                             <constraint firstItem="PdX-pj-oO7" firstAttribute="top" secondItem="Zjx-mG-qUK" secondAttribute="bottom" constant="45" id="bcK-Ng-bSf"/>
                             <constraint firstItem="Zjx-mG-qUK" firstAttribute="trailing" secondItem="G2F-cJ-gpp" secondAttribute="trailing" id="dYG-NC-GDp"/>
                             <constraint firstItem="Zjx-mG-qUK" firstAttribute="leading" secondItem="G2F-cJ-gpp" secondAttribute="leading" id="f7T-Wz-4qB"/>
@@ -268,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="6128" y="-255"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Tutorial View Controller-->
         <scene sceneID="DeX-nZ-wcx">
             <objects>
-                <viewController id="Ux6-Bg-n7h" sceneMemberID="viewController">
+                <viewController id="Ux6-Bg-n7h" customClass="CreateTutorialViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8cd-GJ-WMl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,23 +295,17 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w4I-OJ-CkH">
-                                <rect key="frame" x="20" y="377.5" width="374" height="484.5"/>
+                                <rect key="frame" x="20" y="333" width="374" height="529"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helpful Hints:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtd-6p-eIL">
-                                <rect key="frame" x="139" y="329" width="136" height="24.5"/>
-                                <fontDescription key="fontDescription" name="Play-Bold" family="Play" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="w4I-OJ-CkH" firstAttribute="top" secondItem="rtd-6p-eIL" secondAttribute="bottom" constant="24" id="42t-9C-rPw"/>
+                            <constraint firstItem="w4I-OJ-CkH" firstAttribute="top" secondItem="79w-JF-0Ab" secondAttribute="bottom" constant="30" id="69Q-p4-wL1"/>
                             <constraint firstItem="79w-JF-0Ab" firstAttribute="top" secondItem="2N7-Fm-NOj" secondAttribute="bottom" constant="37" id="7M5-Gm-PPQ"/>
                             <constraint firstItem="w4I-OJ-CkH" firstAttribute="leading" secondItem="WOw-T6-7Yt" secondAttribute="leading" constant="20" id="7uE-mi-KEF"/>
                             <constraint firstItem="WOw-T6-7Yt" firstAttribute="trailing" secondItem="w4I-OJ-CkH" secondAttribute="trailing" constant="20" id="DJ9-EY-XG4"/>
@@ -324,13 +315,20 @@
                             <constraint firstItem="WOw-T6-7Yt" firstAttribute="trailing" secondItem="79w-JF-0Ab" secondAttribute="trailing" constant="20" id="Tby-d9-JKJ"/>
                             <constraint firstItem="2N7-Fm-NOj" firstAttribute="top" secondItem="WOw-T6-7Yt" secondAttribute="top" constant="53" id="cdf-ds-VvB"/>
                             <constraint firstItem="w4I-OJ-CkH" firstAttribute="bottom" secondItem="WOw-T6-7Yt" secondAttribute="bottom" id="gdh-No-lcb"/>
-                            <constraint firstItem="rtd-6p-eIL" firstAttribute="top" secondItem="79w-JF-0Ab" secondAttribute="bottom" constant="26" id="gkO-kD-vTc"/>
-                            <constraint firstItem="rtd-6p-eIL" firstAttribute="centerX" secondItem="8cd-GJ-WMl" secondAttribute="centerX" id="tmI-6I-u57"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WOw-T6-7Yt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ses-KT-gcO"/>
+                    <navigationItem key="navigationItem" id="Ses-KT-gcO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WG8-Uh-GVa">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Ux6-Bg-n7h" id="NBH-nH-RCt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="categoryTextField" destination="9jP-f0-qYr" id="7q3-jW-iSB"/>
+                        <outlet property="textView" destination="w4I-OJ-CkH" id="sDV-PU-5zI"/>
+                        <outlet property="titleTextField" destination="XAd-dg-kFH" id="KhU-tp-6F2"/>
                         <segue destination="RKI-bD-0ht" kind="presentation" id="msv-HT-c8D"/>
                     </connections>
                 </viewController>
