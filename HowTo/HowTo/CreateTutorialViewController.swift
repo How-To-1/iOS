@@ -27,6 +27,7 @@ class CreateTutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        udpdateTextView()
         createTapGesture()
         createCategoryPicker()
     }
@@ -50,6 +51,12 @@ class CreateTutorialViewController: UIViewController {
     }
 
     // MARK: - Actions
+
+    private func udpdateTextView() {
+        textView.text = "Suggest some helpful hints..."
+        textView.textColor = .gray
+        textView.layer.borderWidth = 0.5
+    }
 
     private func createCategoryPicker() {
         let categoryPicker = UIPickerView()
@@ -90,5 +97,25 @@ extension CreateTutorialViewController: UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCategory = categories[row]
         categoryTextField.text = selectedCategory
+    }
+}
+
+extension CreateTutorialViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.layer.borderColor = UIColor.darkGray.cgColor
+
+        if textView.textColor == UIColor.gray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.layer.borderColor = UIColor.clear.cgColor
+
+        if textView.text.isEmpty {
+            textView.text = "Suggest some helpful hints..."
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
