@@ -5,7 +5,5 @@ target 'HowTo' do
   use_frameworks!
 
   # Pods for HowTo
-    pod 'Firebase/Auth'
-    pod 'Firebase/Firestore'
 
 end

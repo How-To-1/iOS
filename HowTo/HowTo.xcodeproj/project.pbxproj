@@ -213,7 +213,6 @@
 				2C696FA92458A12000B6BFC9 /* Sources */,
 				2C696FAA2458A12000B6BFC9 /* Frameworks */,
 				2C696FAB2458A12000B6BFC9 /* Resources */,
-				58AD1761319F502FD06E5492 /* [CP] Embed Pods Frameworks */,
 				2C7646F82458BFF000AE26EB /* ShellScript */,
 			);
 			buildRules = (
@@ -294,23 +293,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		58AD1761319F502FD06E5492 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HowTo/Pods-HowTo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		A60E261C3970BDEBDF2117B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
