@@ -104,7 +104,7 @@ class TutorialController {
         }.resume()
     }
     
-    func updateTutorials(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+    func updateTutorials(tutorial: Tutorial, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
 
         let identifier = tutorial.identifier
         
@@ -114,6 +114,8 @@ class TutorialController {
             .appendingPathComponent("\(identifier)")
 
         var request = URLRequest(url: requestURL)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "PUT"
         
         do {
@@ -185,13 +187,14 @@ class TutorialController {
     }
     
     func update(tutorial: Tutorial, title: String, guide: String, category: String, identifier: Int64) {
-        
         tutorial.title = title
         tutorial.guide = guide
         tutorial.category = category
         tutorial.identifier = identifier
+
+        guard let bearer = userController?.bearer else { return }
         
-        updateTutorials(tutorial: tutorial)
+        updateTutorials(tutorial: tutorial, bearer: bearer)
         CoreDataStack.shared.save()
     }
     
