@@ -35,20 +35,21 @@ class HomeScreenTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         
+        // TESTING CODE REFERENCE
 //        let testTut = Tutorial(title: "mango", guide: "testguide", category: Category.automotive, identifier: Int16(12), context: CoreDataStack.shared.mainContext)
 //        print(testTut)
-        CoreDataStack.shared.save()
-        
-        let fetchRequest = NSFetchRequest<Tutorial>(entityName: "Tutorial")
-        do {
-            let fetchedResults = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-            for item in fetchedResults {
-                print(item.value(forKey: "title")!)
-            }
-        } catch let error as NSError {
-            // something went wrong, print the error.
-            print(error.description)
-        }
+//        CoreDataStack.shared.save()
+//
+//        let fetchRequest = NSFetchRequest<Tutorial>(entityName: "Tutorial")
+//        do {
+//            let fetchedResults = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+//            for item in fetchedResults {
+//                print(item.value(forKey: "title")!)
+//            }
+//        } catch let error as NSError {
+//            // something went wrong, print the error.
+//            print(error.description)
+//        }
         
         setupFRC()
         
