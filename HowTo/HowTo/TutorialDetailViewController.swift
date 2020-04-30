@@ -9,37 +9,53 @@
 import UIKit
 
 class TutorialDetailViewController: UIViewController {
-
+    
+    // MARK: - Properties
+    
+    var tutorial: Tutorial?
+    var tutorialController: TutorialController?
+    var userController: UserController?
+    
     // MARK: - Outlets
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var guideTextView: UITextView!
     @IBOutlet weak var editButton: UIBarButtonItem!
-
+    
     // MARK: - View Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
-
+    
     // MARK: - IBActions
-
     
     @IBAction func editButtonTapped(_ sender: Any) {
+
     }
     
+    
+    func updateViews() {
+        guard let tutorial = tutorial,
+            let category = tutorial.category,
+            let userController = userController else { return }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        titleLabel.text = tutorial.title
+        guideTextView.text = tutorial.guide
+        imageView.image = UIImage(named: category)
+        
+        if userController.bearer == nil {
+            self.navigationItem.rightBarButtonItem = nil
+        } else {
+            self.navigationItem.rightBarButtonItem = self.editButton
     }
-    */
-
+    
+    
+    func editButtonHidden() {
+        }
+    }
 }
+
