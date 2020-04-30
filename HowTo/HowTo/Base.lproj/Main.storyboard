@@ -142,7 +142,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TutorialCell" rowHeight="268" id="41a-xe-RFw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TutorialCell" rowHeight="268" id="41a-xe-RFw" customClass="TutorialTableViewCell" customModule="HowTo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="268"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="41a-xe-RFw" id="7vW-ga-NFD">
@@ -177,6 +177,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="categoryImage" destination="OTF-J3-tk4" id="X2f-qC-jik"/>
+                                    <outlet property="categoryLabel" destination="qMm-xp-dL8" id="ZI8-sJ-G9p"/>
+                                    <outlet property="titleLabel" destination="maB-rv-srL" id="hzx-ax-gEj"/>
                                     <segue destination="2sK-bA-s9Q" kind="show" identifier="ShowTutorialDetailSegue" id="GdM-Vy-2xR"/>
                                 </connections>
                             </tableViewCell>
@@ -378,6 +381,6 @@
         <image name="howto" width="3432" height="5145"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ror-H5-URQ"/>
+        <segue reference="sNg-Dr-3E4"/>
     </inferredMetricsTieBreakers>
 </document>
