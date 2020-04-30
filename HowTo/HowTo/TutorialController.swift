@@ -30,10 +30,9 @@ class TutorialController {
 
     // MARK: - Networking Methods
     
-    func fetchTutorialFromServer(completion: @escaping CompletionHandler = { _ in
-        }) {
+    func fetchTutorialFromServer(completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
-        
+
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
                 NSLog("Error fetching tutorials: \(error)")
@@ -161,12 +160,12 @@ class TutorialController {
                 for representation in tutorialsToCreate.values {
                     Tutorial(tutorialRepresentation: representation, context: context)
                 }
-
-                CoreDataStack.shared.save(context: context)
             } catch {
                 NSLog("Error fetching tutorials from persistent stores: \(error)")
             }
         }
+
+        CoreDataStack.shared.save(context: context)
     }
 
     // MARK: - CRUD
