@@ -39,38 +39,56 @@ class OnboardingViewController: UIViewController {
         let user = UserRepresentation(username: username, password: password)
 
         if state == .notLoggedIn {
-            // This should sign in
+            signIn(with: user)
         } else {
-            // This should register
+            register(user: user)
         }
     }
 
     @IBAction func smallButtonTapped(_ sender: UIButton) {
         isLoggedIn.toggle()
+
+        if isLoggedIn == false {
+            signInButton.setTitle("SIGN IN", for: .normal)
+            accountLabel.text = "Don't have an account?"
+            signInButtonLabel.setTitle("Register", for: .normal)
+            state = .notLoggedIn
+        } else {
+            signInButton.setTitle("SIGN UP", for: .normal)
+            accountLabel.text = "Already have an account?"
+            signInButtonLabel.setTitle("Sign In", for: .normal)
+            state = .loggedIn
+        }
     }
 
     // MARK: - Actions
 
     private func signIn(with user: UserRepresentation) {
+        userController?.signIn(user: user, completion: { error, _ in
+            if let error = error {
+                NSLog("Error signing in with provided details: \(error)")
+            }
 
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
 
     private func register(user: UserRepresentation) {
+        userController?.register(user: user, completion: { error in
+            if let error = error {
+                NSLog("Error registering new user: \(error)")
+            }
 
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
 
     private func updateViews() {
-        if isLoggedIn == false {
-            signInButton.setTitle("Sign In", for: .normal)
-            accountLabel.text = "Don't have an account?"
-            signInButtonLabel.setTitle("Register", for: .normal)
-            state = .notLoggedIn
-        } else {
-            signInButton.setTitle("Sign Up", for: .normal)
-            accountLabel.text = "Already have an account?"
-            signInButtonLabel.setTitle("Sign In", for: .normal)
-            state = .loggedIn
-        }
+
     }
 
     private func updateTextFields() {
