@@ -49,11 +49,11 @@ class TutorialController {
             do {
                 let tutorialRepresentations = Array(try JSONDecoder().decode([String: TutorialRepresentation].self, from: data).values)
                 try self.updateTutorials(with: tutorialRepresentations)
-                completion(.success(true))
             } catch {
                 NSLog("Error decoding tutorials from server: \(error)")
                 completion(.failure(.noDecode))
             }
+            completion(.success(true))
         }.resume()
     }
     
@@ -86,7 +86,7 @@ class TutorialController {
         }.resume()
     }
     
-    func deleteTaskFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+    func deleteTutorialFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
@@ -192,7 +192,7 @@ class TutorialController {
     }
     
     func delete(tutorial: Tutorial) {
-        deleteTaskFromServer(tutorial: tutorial)
+        deleteTutorialFromServer(tutorial: tutorial)
         CoreDataStack.shared.mainContext.delete(tutorial)
         CoreDataStack.shared.save()
     }

@@ -34,25 +34,13 @@ class HomeScreenTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        
-        // TESTING CODE REFERENCE
-//        let testTut = Tutorial(title: "mango", guide: "testguide", category: Category.automotive, identifier: Int16(12), context: CoreDataStack.shared.mainContext)
-//        print(testTut)
-//        CoreDataStack.shared.save()
-//
-//        let fetchRequest = NSFetchRequest<Tutorial>(entityName: "Tutorial")
-//        do {
-//            let fetchedResults = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-//            for item in fetchedResults {
-//                print(item.value(forKey: "title")!)
-//            }
-//        } catch let error as NSError {
-//            // something went wrong, print the error.
-//            print(error.description)
-//        }
-        
         setupFRC()
         
+        if userController.bearer == nil {
+            self.navigationItem.leftBarButtonItem = nil
+        } else {
+            self.navigationItem.leftBarButtonItem = self.signOutButton
+        }
     }
 
     // MARK: - Table view data source
@@ -63,9 +51,11 @@ class HomeScreenTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TutorialCell", for: indexPath)
-
-        // Configure the cell...
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: TutorialTableViewCell.reuseIdentifier, for: indexPath) as? TutorialTableViewCell else {
+            fatalError("Can't dequeue cell of type TutorialCell")
+        }
+         
+        cell.tutorial = frc.object(at: indexPath)
 
         return cell
     }
@@ -74,11 +64,10 @@ class HomeScreenTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let tutorial = frc.object(at: indexPath)
+            tutorialController.deleteTutorialFromServer(tutorial: tutorial)
+            tutorialController.delete(tutorial: tutorial)
+        }
     }
 
 
