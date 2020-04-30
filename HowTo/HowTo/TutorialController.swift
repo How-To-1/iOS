@@ -86,7 +86,7 @@ class TutorialController {
         }.resume()
     }
     
-    func deleteTaskFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+    func deleteTutorialFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
@@ -192,7 +192,7 @@ class TutorialController {
     }
     
     func delete(tutorial: Tutorial) {
-        deleteTaskFromServer(tutorial: tutorial)
+        deleteTutorialFromServer(tutorial: tutorial)
         CoreDataStack.shared.mainContext.delete(tutorial)
         CoreDataStack.shared.save()
     }
