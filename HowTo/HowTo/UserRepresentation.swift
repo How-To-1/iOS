@@ -11,11 +11,9 @@ import Foundation
 struct UserRepresentation: Codable {
     var username: String
     var password: String
-    var identifier: Int16
-    
+
     enum UserKeys: String, CodingKey {
         case username
         case password
-        case identifier = "id"
     }
 }

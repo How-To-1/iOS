@@ -51,6 +51,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="registerTapped:" destination="RKI-bD-0ht" eventType="touchUpInside" id="12z-mP-YG5"/>
+                                    <action selector="signInButtonTapped:" destination="RKI-bD-0ht" eventType="touchUpInside" id="g4o-ij-BBU"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b24-6y-bO7">
@@ -68,6 +69,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="smallButtonTapped:" destination="RKI-bD-0ht" eventType="touchUpInside" id="Qe3-8a-hvb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -116,11 +120,10 @@
                     <navigationItem key="navigationItem" id="33v-Lc-pUN"/>
                     <connections>
                         <outlet property="accountLabel" destination="HbJ-6o-97S" id="KBb-2n-q3P"/>
-                        <outlet property="emailTextFIeld" destination="YWS-gB-5Sb" id="esn-3T-HWA"/>
-                        <outlet property="emailTextField" destination="YWS-gB-5Sb" id="KHF-cd-XB8"/>
                         <outlet property="passwordTextField" destination="CkS-7j-auW" id="lJl-Sa-jgy"/>
                         <outlet property="signInButton" destination="gLD-oZ-b4b" id="pbL-yA-XVm"/>
-                        <outlet property="signInLabel" destination="v1g-jP-AGJ" id="bXr-6C-ZQi"/>
+                        <outlet property="signInButtonLabel" destination="v1g-jP-AGJ" id="bXr-6C-ZQi"/>
+                        <outlet property="usernameTextField" destination="YWS-gB-5Sb" id="esn-3T-HWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-7H-aoc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
