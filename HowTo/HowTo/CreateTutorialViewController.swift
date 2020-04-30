@@ -33,12 +33,16 @@ class CreateTutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
         udpdateTextView()
         createTapGesture()
         createCategoryPicker()
+        textViewWithTutorial()
 
         hintsTextView.delegate = self
+        
+        if let _ = tutorial {
+            updateViews()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -53,22 +57,28 @@ class CreateTutorialViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = titleTextField.text,
+        if let tutorial = tutorial {
+          guard let title = titleTextField.text,
+          let categoryString = categoryTextField.text,
+          let category = Category(rawValue: categoryString),
+          let guide = hintsTextView.text else { return }
+            tutorialController?.update(tutorial: tutorial, title: title, guide: guide, category: category.rawValue, identifier: tutorial.identifier)
+        } else {
+          guard let title = titleTextField.text,
             let categoryString = categoryTextField.text,
             let category = Category(rawValue: categoryString),
             let guide = hintsTextView.text else { return }
-
-        let identifier = Int16.random(in: 100...1_000)
-
-        let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
-        tutorialController?.sendTutorialToServer(tutorial: tutorial)
-
+          let identifier = Int16.random(in: 100...1_000)
+          let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
+          tutorialController?.sendTutorialToServer(tutorial: tutorial)
+        }
         navigationController?.popToRootViewController(animated: true)
     }
 
     // MARK: - Actions
 
     private func updateViews() {
+        guard isViewLoaded else { return }
         if let tutorial = tutorial {
             titleTextField.text = tutorial.title
             categoryTextField.text = tutorial.category
@@ -83,6 +93,17 @@ class CreateTutorialViewController: UIViewController {
         hintsTextView.layer.borderWidth = 0.5
         hintsTextView.layer.cornerRadius = 10
         hintsTextView.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    private func textViewWithTutorial() {
+      if let tutorial = tutorial {
+        hintsTextView.text = tutorial.guide
+        hintsTextView.textColor = .black
+        hintsTextView.backgroundColor = .white
+        hintsTextView.layer.borderWidth = 0.5
+        hintsTextView.layer.cornerRadius = 10
+        hintsTextView.layer.borderColor = UIColor.lightGray.cgColor
+      }
     }
 
     private func createCategoryPicker() {

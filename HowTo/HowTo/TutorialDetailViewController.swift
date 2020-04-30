@@ -52,9 +52,18 @@ class TutorialDetailViewController: UIViewController {
         } else {
             self.navigationItem.rightBarButtonItem = self.editButton
     }
+    }
     
     
-    func editButtonHidden() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowEditTutorialSegue" {
+            if let destinationVC = segue.destination as? CreateTutorialViewController {
+                destinationVC.tutorialController = tutorialController
+                destinationVC.userController = userController
+                if let tutorial = tutorial {
+                destinationVC.tutorial = tutorial
+                }
+            }
         }
     }
 }
