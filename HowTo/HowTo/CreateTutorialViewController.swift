@@ -16,9 +16,8 @@ class CreateTutorialViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var textView: UITextView!
 
-    // MARK: - Propertis
+    // MARK: - Properties
 
-    var tutorial: Tutorial?
     var tutorialController: TutorialController?
     var userController: UserController?
     var selectedCategory: String?

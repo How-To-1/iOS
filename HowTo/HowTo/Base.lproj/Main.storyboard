@@ -173,7 +173,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="2sK-bA-s9Q" kind="show" id="GdM-Vy-2xR"/>
+                                    <segue destination="2sK-bA-s9Q" kind="show" identifier="ShowTutorialDetailSegue" id="GdM-Vy-2xR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -192,7 +192,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AuH-eK-dhh">
                             <connections>
                                 <action selector="addButtonTapped:" destination="Ilr-ZU-2jn" id="m4V-x5-FqP"/>
-                                <segue destination="Ux6-Bg-n7h" kind="show" id="sNg-Dr-3E4"/>
+                                <segue destination="Ux6-Bg-n7h" kind="show" identifier="ShowCreateTutorialSegue" id="sNg-Dr-3E4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
