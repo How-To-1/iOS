@@ -52,7 +52,6 @@ class HomeScreenTableViewController: UITableViewController {
 //        }
         
         setupFRC()
-        
     }
 
     // MARK: - Table view data source
@@ -63,9 +62,11 @@ class HomeScreenTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TutorialCell", for: indexPath)
-
-        // Configure the cell...
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: TutorialTableViewCell.reuseIdentifier, for: indexPath) as? TutorialTableViewCell else {
+            fatalError("Can't dequeue cell of type TutorialCell")
+        }
+         
+        cell.tutorial = frc.object(at: indexPath)
 
         return cell
     }
