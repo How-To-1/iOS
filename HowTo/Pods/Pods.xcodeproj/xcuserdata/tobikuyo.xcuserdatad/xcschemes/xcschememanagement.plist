@@ -69,7 +69,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
 		<dict>
