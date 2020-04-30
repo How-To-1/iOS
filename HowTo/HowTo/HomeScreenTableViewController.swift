@@ -7,25 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeScreenTableViewController: UITableViewController {
 
     // MARK: - Outlets
-
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var guideTitleLabel: UILabel!
-    @IBOutlet weak var categoryImage: UIImageView!
+    
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var signOutButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
 
     // MARK: - Properties
 
+    var frc = NSFetchedResultsController<Tutorial>()
+    
     let userController = UserController()
     let tutorialController = TutorialController()
 
     // MARK: - Actions
-
 
     @IBAction func addButtonTapped(_ sender: Any) {
     }
@@ -34,21 +33,37 @@ class HomeScreenTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
+        
+        // TESTING CODE REFERENCE
+//        let testTut = Tutorial(title: "mango", guide: "testguide", category: Category.automotive, identifier: Int16(12), context: CoreDataStack.shared.mainContext)
+//        print(testTut)
+//        CoreDataStack.shared.save()
+//
+//        let fetchRequest = NSFetchRequest<Tutorial>(entityName: "Tutorial")
+//        do {
+//            let fetchedResults = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+//            for item in fetchedResults {
+//                print(item.value(forKey: "title")!)
+//            }
+//        } catch let error as NSError {
+//            // something went wrong, print the error.
+//            print(error.description)
+//        }
+        
+        setupFRC()
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard let objects = frc.fetchedObjects else { return 0 }
+        return objects.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TutorialCell", for: indexPath)
 
         // Configure the cell...
 
@@ -71,5 +86,35 @@ class HomeScreenTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+    }
+    
+    // MARK: - Private Functions
+    
+    func setupFRC() {
+        let request: NSFetchRequest<Tutorial> = Tutorial.fetchRequest()
+        // filter what we want from CoreData
+        if searchBar.text != "" {
+            request.predicate = NSPredicate(format: "title CONTAINS[c] %@", searchBar.text ?? "")
+        }
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        let moc = CoreDataStack.shared.mainContext
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
+                                                                  managedObjectContext: moc,
+                                                                  sectionNameKeyPath: nil,
+                                                                  cacheName: nil)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("could not fetch: \(error)")
+        }
+        frc = fetchedResultsController
+        tableView.reloadData()
+    }
+}
+
+extension HomeScreenTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        setupFRC()
     }
 }

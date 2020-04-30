@@ -34,6 +34,7 @@ class CoreDataStack {
         context.performAndWait {
             do {
                 try context.save()
+                print("saved context")
             } catch {
                 NSLog("Error saving to persistent stores: \(error)")
                 context.reset()
