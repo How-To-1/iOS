@@ -23,10 +23,17 @@ class CreateTutorialViewController: UIViewController {
     var selectedCategory: String?
     let categories = ["Automotive", "Computing", "Food", "Home"]
 
+    var tutorial: Tutorial? {
+        didSet {
+            updateViews()
+        }
+    }
+
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
         udpdateTextView()
         createTapGesture()
         createCategoryPicker()
@@ -61,6 +68,14 @@ class CreateTutorialViewController: UIViewController {
 
     // MARK: - Actions
 
+    private func updateViews() {
+        if let tutorial = tutorial {
+            titleTextField.text = tutorial.title
+            categoryTextField.text = tutorial.category
+            textView.text = tutorial.guide
+        }
+    }
+
     private func udpdateTextView() {
         textView.text = "Suggest some helpful hints..."
         textView.textColor = .gray
@@ -81,12 +96,6 @@ class CreateTutorialViewController: UIViewController {
 
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
     }
 }
 
