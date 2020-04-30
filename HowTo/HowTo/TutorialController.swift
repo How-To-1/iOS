@@ -49,11 +49,11 @@ class TutorialController {
             do {
                 let tutorialRepresentations = Array(try JSONDecoder().decode([String: TutorialRepresentation].self, from: data).values)
                 try self.updateTutorials(with: tutorialRepresentations)
-                completion(.success(true))
             } catch {
                 NSLog("Error decoding tutorials from server: \(error)")
                 completion(.failure(.noDecode))
             }
+            completion(.success(true))
         }.resume()
     }
     

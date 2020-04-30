@@ -13,4 +13,11 @@ struct TutorialRepresentation: Codable {
     var guide: String
     var category: String
     var identifier: Int16
+    
+    enum TutorialKeys: String, CodingKey {
+        case title
+        case guide = "description"
+        case category
+        case identifier = "guides_id"
+    }
 }
