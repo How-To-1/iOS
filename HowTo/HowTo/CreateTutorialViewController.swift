@@ -68,7 +68,7 @@ class CreateTutorialViewController: UIViewController {
             let categoryString = categoryTextField.text,
             let category = Category(rawValue: categoryString),
             let guide = hintsTextView.text else { return }
-          let identifier = Int16.random(in: 100...1_000)
+          let identifier = Int64.random(in: 100...1_000)
           let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
           tutorialController?.sendTutorialToServer(tutorial: tutorial)
         }

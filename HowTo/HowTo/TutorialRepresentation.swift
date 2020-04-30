@@ -11,13 +11,14 @@ import Foundation
 struct TutorialRepresentation: Codable {
     var title: String
     var guide: String
-    var category: String
-    var identifier: Int16
+    var category: String?
+    var identifier: Int64
     
-    enum TutorialKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case title
         case guide = "description"
         case category
         case identifier = "guides_id"
     }
 }
+
