@@ -9,7 +9,7 @@
 import UIKit
 
 enum LogInState {
-    case loggedIn
+    case notRegistered
     case notLoggedIn
 }
 
@@ -28,6 +28,14 @@ class OnboardingViewController: UIViewController {
     var userController: UserController?
     var isLoggedIn: Bool = false
     var state: LogInState = .notLoggedIn
+
+    // MARK: - View Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateTextFields()
+        notLoggedInState()
+    }
 
     // MARK: - IBActions
 
@@ -49,15 +57,9 @@ class OnboardingViewController: UIViewController {
         isLoggedIn.toggle()
 
         if isLoggedIn == false {
-            signInButton.setTitle("SIGN IN", for: .normal)
-            accountLabel.text = "Don't have an account?"
-            signInButtonLabel.setTitle("Register", for: .normal)
-            state = .notLoggedIn
+            notLoggedInState()
         } else {
-            signInButton.setTitle("SIGN UP", for: .normal)
-            accountLabel.text = "Already have an account?"
-            signInButtonLabel.setTitle("Sign In", for: .normal)
-            state = .loggedIn
+            notRegisteredState()
         }
     }
 
@@ -67,6 +69,15 @@ class OnboardingViewController: UIViewController {
         userController?.signIn(user: user, completion: { error, _ in
             if let error = error {
                 NSLog("Error signing in with provided details: \(error)")
+                let alert = UIAlertController(title: "Error",
+                                              message: "Please provide valid details",
+                                              preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
 
             DispatchQueue.main.async {
@@ -79,35 +90,48 @@ class OnboardingViewController: UIViewController {
         userController?.register(user: user, completion: { error in
             if let error = error {
                 NSLog("Error registering new user: \(error)")
+                let alert = UIAlertController(title: "Error",
+                                              message: "We were unable to create an account with the provided details",
+                                              preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
 
+            let alert = UIAlertController(title: "Success",
+                                          message: "We were able to create an account with the provided details",
+                                          preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+
             DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
+                self.notLoggedInState()
+                self.isLoggedIn = false
             }
         })
     }
 
-    private func updateViews() {
+    private func notLoggedInState() {
+        signInButton.setTitle("SIGN IN", for: .normal)
+        accountLabel.text = "Don't have an account?"
+        signInButtonLabel.setTitle("Register", for: .normal)
+        state = .notLoggedIn
+    }
 
+    private func notRegisteredState() {
+        signInButton.setTitle("SIGN UP", for: .normal)
+        accountLabel.text = "Already have an account?"
+        signInButtonLabel.setTitle("Sign In", for: .normal)
+        state = .notRegistered
     }
 
     private func updateTextFields() {
         OnboardingTextField.styleTextField(usernameTextField)
         OnboardingTextField.styleTextField(passwordTextField)
         passwordTextField.isSecureTextEntry = true
-    }
-
-    // MARK: - View Lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateTextFields()
-        updateViews()
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
 }
