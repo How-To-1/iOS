@@ -85,7 +85,16 @@ class HomeScreenTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowCreateTutorialSegue" {
+            if let destinationVC = segue.destination as? CreateTutorialViewController {
+                destinationVC.userController = userController
+                destinationVC.tutorialController = tutorialController
+            }
+        }
 
+        else if segue.identifier == "ShowTutorialDetailSegue" {
+
+        }
     }
     
     // MARK: - Private Functions
