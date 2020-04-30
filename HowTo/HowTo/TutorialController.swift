@@ -46,7 +46,7 @@ class TutorialController {
             }
             
             do {
-                let tutorialRepresentations = Array(try JSONDecoder().decode([String: TutorialRepresentation].self, from: data).values)
+                let tutorialRepresentations = try JSONDecoder().decode([TutorialRepresentation].self, from: data)
                 try self.updateTutorials(with: tutorialRepresentations)
             } catch {
                 NSLog("Error decoding tutorials from server: \(error)")
@@ -143,7 +143,7 @@ class TutorialController {
         context.performAndWait {
             do {
                 let fetchRequest: NSFetchRequest<Tutorial> = Tutorial.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "id IN %@", identifierToFetch)
+                fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifierToFetch)
 
                 let existingTutorials = try context.fetch(fetchRequest)
 
@@ -170,7 +170,7 @@ class TutorialController {
 
     // MARK: - CRUD
     
-    func createTutorial(title: String, guide: String, category: String, identifier: Int16) {
+    func createTutorial(title: String, guide: String, category: String, identifier: Int64) {
         guard let categoryRaw = Category(rawValue: category) else { return }
         
         let tutorial = Tutorial(title: title, guide: guide, category: categoryRaw, identifier: identifier)
@@ -179,7 +179,7 @@ class TutorialController {
         CoreDataStack.shared.save()
     }
     
-    func update(tutorial: Tutorial, title: String, guide: String, category: String, identifier: Int16) {
+    func update(tutorial: Tutorial, title: String, guide: String, category: String, identifier: Int64) {
         
         tutorial.title = title
         tutorial.guide = guide
