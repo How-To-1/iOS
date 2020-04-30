@@ -24,10 +24,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Register View Controller-->
+        <!--Onboarding View Controller-->
         <scene sceneID="iDh-Du-qUN">
             <objects>
-                <viewController id="RKI-bD-0ht" customClass="RegisterViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RKI-bD-0ht" customClass="OnboardingViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JZg-zZ-79z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,8 +115,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="33v-Lc-pUN"/>
                     <connections>
+                        <outlet property="accountLabel" destination="HbJ-6o-97S" id="KBb-2n-q3P"/>
+                        <outlet property="emailTextFIeld" destination="YWS-gB-5Sb" id="esn-3T-HWA"/>
                         <outlet property="emailTextField" destination="YWS-gB-5Sb" id="KHF-cd-XB8"/>
-                        <outlet property="passwordTextField" destination="CkS-7j-auW" id="Qyz-JE-XEO"/>
+                        <outlet property="passwordTextField" destination="CkS-7j-auW" id="lJl-Sa-jgy"/>
+                        <outlet property="signInButton" destination="gLD-oZ-b4b" id="pbL-yA-XVm"/>
+                        <outlet property="signInLabel" destination="v1g-jP-AGJ" id="bXr-6C-ZQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKF-7H-aoc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -206,10 +210,10 @@
             </objects>
             <point key="canvasLocation" x="5050.7246376811599" y="-536.38392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial Detail View Controller-->
         <scene sceneID="OSu-ec-QJ4">
             <objects>
-                <viewController id="2sK-bA-s9Q" sceneMemberID="viewController">
+                <viewController id="2sK-bA-s9Q" customClass="TutorialDetailViewController" customModule="HowTo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3gV-uX-Du8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,12 +262,23 @@
                         <viewLayoutGuide key="safeArea" id="G2F-cJ-gpp"/>
                     </view>
                     <navigationItem key="navigationItem" id="HLY-0k-Tgd">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="2ah-hZ-M4w"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="2ah-hZ-M4w">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="2sK-bA-s9Q" id="qmE-hC-nhA"/>
+                                <segue destination="Ux6-Bg-n7h" kind="show" identifier="ShowEditTutorialSegue" id="Ror-H5-URQ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="2ah-hZ-M4w" id="KK1-g4-jNU"/>
+                        <outlet property="guideTextView" destination="RIn-5t-ovh" id="1Qf-Nw-Fuf"/>
+                        <outlet property="imageView" destination="Zjx-mG-qUK" id="cFH-Ex-Gef"/>
+                        <outlet property="titleLabel" destination="PdX-pj-oO7" id="3Fw-NW-qhq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUA-kp-H5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6128" y="-255"/>
+            <point key="canvasLocation" x="6061" y="-354"/>
         </scene>
         <!--Create Tutorial View Controller-->
         <scene sceneID="DeX-nZ-wcx">
@@ -334,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xp6-9T-NUl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6128" y="-927"/>
+            <point key="canvasLocation" x="6061" y="-1128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uep-EP-xem">
@@ -362,4 +377,7 @@
         <image name="Coronavirus" width="1460" height="1038"/>
         <image name="howto" width="3432" height="5145"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ror-H5-URQ"/>
+    </inferredMetricsTieBreakers>
 </document>
