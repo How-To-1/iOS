@@ -58,19 +58,20 @@ class CreateTutorialViewController: UIViewController {
 
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let tutorial = tutorial {
-          guard let title = titleTextField.text,
-          let categoryString = categoryTextField.text,
-          let category = Category(rawValue: categoryString),
-          let guide = hintsTextView.text else { return }
+            guard let title = titleTextField.text,
+                let categoryString = categoryTextField.text,
+                let category = Category(rawValue: categoryString),
+                let guide = hintsTextView.text else { return }
             tutorialController?.update(tutorial: tutorial, title: title, guide: guide, category: category.rawValue, identifier: tutorial.identifier)
         } else {
-          guard let title = titleTextField.text,
-            let categoryString = categoryTextField.text,
-            let category = Category(rawValue: categoryString),
-            let guide = hintsTextView.text else { return }
-          let identifier = Int64.random(in: 100...1_000)
-          let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
-          tutorialController?.sendTutorialToServer(tutorial: tutorial)
+            guard let title = titleTextField.text,
+                let categoryString = categoryTextField.text,
+                let category = Category(rawValue: categoryString),
+                let guide = hintsTextView.text,
+                let bearer = userController?.bearer else { return }
+            let identifier = Int64.random(in: 100...1_000)
+            let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
+            tutorialController?.sendTutorialToServer(tutorial: tutorial, bearer: bearer)
         }
         navigationController?.popToRootViewController(animated: true)
     }
@@ -96,14 +97,14 @@ class CreateTutorialViewController: UIViewController {
     }
     
     private func textViewWithTutorial() {
-      if let tutorial = tutorial {
-        hintsTextView.text = tutorial.guide
-        hintsTextView.textColor = .black
-        hintsTextView.backgroundColor = .white
-        hintsTextView.layer.borderWidth = 0.5
-        hintsTextView.layer.cornerRadius = 10
-        hintsTextView.layer.borderColor = UIColor.lightGray.cgColor
-      }
+        if let tutorial = tutorial {
+            hintsTextView.text = tutorial.guide
+            hintsTextView.textColor = .black
+            hintsTextView.backgroundColor = .white
+            hintsTextView.layer.borderWidth = 0.5
+            hintsTextView.layer.cornerRadius = 10
+            hintsTextView.layer.borderColor = UIColor.lightGray.cgColor
+        }
     }
 
     private func createCategoryPicker() {
