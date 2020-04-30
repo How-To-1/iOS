@@ -77,7 +77,7 @@ class UserController {
         }
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 201 {
+                response.statusCode != 200 {
                 NSLog("Unexpected status code: \(response.statusCode)")
                 completion(.otherError, nil)
                 return
@@ -103,6 +103,5 @@ class UserController {
             }
             completion(nil, self.bearer)
         }.resume()
-        
     }
 }

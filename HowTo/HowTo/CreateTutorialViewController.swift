@@ -14,7 +14,7 @@ class CreateTutorialViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var hintsTextView: UITextView!
 
     // MARK: - Properties
 
@@ -37,6 +37,8 @@ class CreateTutorialViewController: UIViewController {
         udpdateTextView()
         createTapGesture()
         createCategoryPicker()
+
+        hintsTextView.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -54,11 +56,9 @@ class CreateTutorialViewController: UIViewController {
         guard let title = titleTextField.text,
             let categoryString = categoryTextField.text,
             let category = Category(rawValue: categoryString),
-            let guide = textView.text else { return }
+            let guide = hintsTextView.text else { return }
 
-        let dateNow = Date()
-        let timeInterval = dateNow.timeIntervalSince1970
-        let identifier = Int16(timeInterval)
+        let identifier = Int16.random(in: 100...1_000)
 
         let tutorial = Tutorial(title: title, guide: guide, category: category, identifier: identifier)
         tutorialController?.sendTutorialToServer(tutorial: tutorial)
@@ -72,20 +72,23 @@ class CreateTutorialViewController: UIViewController {
         if let tutorial = tutorial {
             titleTextField.text = tutorial.title
             categoryTextField.text = tutorial.category
-            textView.text = tutorial.guide
+            hintsTextView.text = tutorial.guide
         }
     }
 
     private func udpdateTextView() {
-        textView.text = "Suggest some helpful hints..."
-        textView.textColor = .gray
-        textView.layer.borderWidth = 0.5
+        hintsTextView.text = "Some Helpful Hints:\n\nTry to provide a step by step guide on this topic."
+        hintsTextView.textColor = .lightGray
+        hintsTextView.backgroundColor = .white
+        hintsTextView.layer.borderWidth = 0.5
+        hintsTextView.layer.cornerRadius = 10
+        hintsTextView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     private func createCategoryPicker() {
         let categoryPicker = UIPickerView()
         categoryPicker.delegate = self
-        categoryPicker.backgroundColor = .clear
+        categoryPicker.backgroundColor = .white
         categoryTextField.inputView = categoryPicker
     }
 
@@ -96,6 +99,16 @@ class CreateTutorialViewController: UIViewController {
 
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ModalOnboardingSegue" {
+            if let destinationVC = segue.destination as? OnboardingViewController {
+                destinationVC.userController = userController
+            }
+        }
     }
 }
 
@@ -120,19 +133,15 @@ extension CreateTutorialViewController: UIPickerViewDataSource, UIPickerViewDele
 
 extension CreateTutorialViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.layer.borderColor = UIColor.darkGray.cgColor
-
-        if textView.textColor == UIColor.gray {
+        if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
         }
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        textView.layer.borderColor = UIColor.clear.cgColor
-
         if textView.text.isEmpty {
-            textView.text = "Suggest some helpful hints..."
+            textView.text = "Some Helpful Hints:\n\nTry to provide a step by step guide on this topic."
             textView.textColor = UIColor.lightGray
         }
     }

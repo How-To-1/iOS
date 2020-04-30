@@ -17,7 +17,8 @@ class OnboardingTextField {
         textfield.borderStyle = .none
         textfield.layer.addSublayer(bottomLine)
         textfield.textColor = .white
-        textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder!,
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
 
     static func styleFilledButton(_ button:UIButton) {
