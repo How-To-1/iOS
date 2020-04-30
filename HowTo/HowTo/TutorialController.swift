@@ -23,6 +23,8 @@ let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
 class TutorialController {
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
+
+    var userController: UserController?
     
     init() {
         fetchTutorialFromServer()
@@ -56,15 +58,16 @@ class TutorialController {
         }.resume()
     }
     
-    func sendTutorialToServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
+    func sendTutorialToServer(tutorial: Tutorial, bearer: Bearer, completion: @escaping (Error?) -> Void = { _ in }) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
         var request = URLRequest(url: requestURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         
         guard let representation = tutorial.tutorialRepresentation else {
             NSLog("Tutorial Representation is nil")
-            completion(.failure(.noRep))
+            completion(NSError())
             return
         }
         
@@ -72,17 +75,17 @@ class TutorialController {
             request.httpBody = try JSONEncoder().encode(representation)
         } catch {
             NSLog("Error encoding tutorial \(tutorial): \(error)")
-            completion(.failure(.noEncode))
+            completion(error)
             return
         }
         
         URLSession.shared.dataTask(with: request) { _, _, error in
             if let error = error {
                 NSLog("Error sending tutorial to server: \(error)")
-                completion(.failure(.otherError))
+                completion(error)
                 return
             }
-            completion(.success(true))
+            completion(nil)
         }.resume()
     }
     
@@ -172,11 +175,12 @@ class TutorialController {
     // MARK: - CRUD
     
     func createTutorial(title: String, guide: String, category: String, identifier: Int64) {
-        guard let categoryRaw = Category(rawValue: category) else { return }
+        guard let categoryRaw = Category(rawValue: category),
+            let bearer = userController?.bearer else { return }
         
         let tutorial = Tutorial(title: title, guide: guide, category: categoryRaw, identifier: identifier)
         
-        sendTutorialToServer(tutorial: tutorial)
+        sendTutorialToServer(tutorial: tutorial, bearer: bearer)
         CoreDataStack.shared.save()
     }
     
