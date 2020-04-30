@@ -80,6 +80,26 @@ class HomeScreenTableViewController: UITableViewController {
         } else {
             self.navigationItem.leftBarButtonItem = self.signOutButton
         }
+        
+//        // MARK: - Testing Code Reference
+//
+//                let testTut = Tutorial(title: "test2", guide: "testguide", category: Category.home, identifier: Int16(12), context: CoreDataStack.shared.mainContext)
+//                print(testTut)
+//                CoreDataStack.shared.save()
+//
+//                let fetchRequest = NSFetchRequest<Tutorial>(entityName: "Tutorial")
+//                do {
+//                    let fetchedResults = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+//                    for item in fetchedResults {
+//                        print(item.value(forKey: "title")!)
+//                    }
+//                } catch let error as NSError {
+//                    // something went wrong, print the error.
+//                    print(error.description)
+//                }
+//
+//
+//
     }
 
     // MARK: - Table view data source
@@ -121,7 +141,12 @@ class HomeScreenTableViewController: UITableViewController {
                 destinationVC.tutorialController = tutorialController
             }
         } else if segue.identifier == "ShowTutorialDetailSegue" {
-
+            if let destinationVC = segue.destination as? TutorialDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                destinationVC.tutorialController = tutorialController
+                destinationVC.tutorial = fetchedResultsController.object(at: indexPath)
+                destinationVC.userController = userController
+            }
         }
     }
     
