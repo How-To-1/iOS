@@ -59,6 +59,7 @@ class TutorialController {
     func sendTutorialToServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
         var request = URLRequest(url: requestURL)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         
         guard let representation = tutorial.tutorialRepresentation else {
