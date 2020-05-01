@@ -14,6 +14,7 @@
 		2C43351E245A1F8600485A74 /* HomeScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C43351D245A1F8600485A74 /* HomeScreenTableViewController.swift */; };
 		2C433520245A250C00485A74 /* CreateTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C43351F245A250C00485A74 /* CreateTutorialViewController.swift */; };
 		2C433524245A67F300485A74 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C433523245A67F300485A74 /* OnboardingViewController.swift */; };
+		2C54E41A245C43680026BB87 /* URLSession+NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E419245C43680026BB87 /* URLSession+NetworkDataLoader.swift */; };
 		2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB02458A12000B6BFC9 /* AppDelegate.swift */; };
 		2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */; };
 		2C696FB82458A12000B6BFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C696FB62458A12000B6BFC9 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		2C43351D245A1F8600485A74 /* HomeScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTableViewController.swift; sourceTree = "<group>"; };
 		2C43351F245A250C00485A74 /* CreateTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialViewController.swift; sourceTree = "<group>"; };
 		2C433523245A67F300485A74 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2C54E419245C43680026BB87 /* URLSession+NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDataLoader.swift"; sourceTree = "<group>"; };
 		2C696FAD2458A12000B6BFC9 /* HowTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C696FB02458A12000B6BFC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2C061449245C423F005E7A04 /* NetworkDataLoader.swift */,
+				2C54E419245C43680026BB87 /* URLSession+NetworkDataLoader.swift */,
 			);
 			name = Mocking;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				2CD57B89245A6DB800388B30 /* TutorialTableViewCell.swift in Sources */,
 				99824F0B2458DE500065AB1B /* TutorialRepresentation.swift in Sources */,
 				99AAE4A92459095500424019 /* TutorialController.swift in Sources */,
+				2C54E41A245C43680026BB87 /* URLSession+NetworkDataLoader.swift in Sources */,
 				99A73F35245B5CFE00092B5B /* Guides.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
