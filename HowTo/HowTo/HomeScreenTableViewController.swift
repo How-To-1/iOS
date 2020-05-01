@@ -21,16 +21,22 @@ class HomeScreenTableViewController: UITableViewController {
     
     let userController = UserController()
     let tutorialController = TutorialController()
+    
+    var tutorials: [Tutorial]?
+    var searchedTutorials: [Tutorial]?
+    var searchResultsController: NSFetchedResultsController<Tutorial>?
 
     lazy var fetchedResultsController: NSFetchedResultsController<Tutorial> = {
         let fetchRequest: NSFetchRequest<Tutorial> = Tutorial.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        var predicate: NSPredicate
 
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,
                                              sectionNameKeyPath: "title",
                                              cacheName: nil)
+        
         frc.delegate = self
 
         do {
@@ -41,6 +47,7 @@ class HomeScreenTableViewController: UITableViewController {
 
         return frc
     }()
+    
 
     // MARK: - Actions
 
@@ -67,6 +74,7 @@ class HomeScreenTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         titleView()
+        
         
         if userController.bearer == nil {
             self.navigationItem.leftBarButtonItem = nil
@@ -174,6 +182,29 @@ extension HomeScreenTableViewController: NSFetchedResultsControllerDelegate {
 extension HomeScreenTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-     
+        
+        var predicate: NSPredicate?
+        if searchBar.text?.count != 0 {
+            predicate = NSPredicate(format: "(title CONTAINS[cd] %@) || (category CONTAINS[cd] %@)", searchText, searchText)
+        }
+        fetchedResultsController.fetchRequest.predicate = predicate
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            NSLog("Error performing fetch: \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        fetchedResultsController.fetchRequest.predicate = nil
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            NSLog("Error: \(error)")
+        }
+        tableView.reloadData()
     }
 }
