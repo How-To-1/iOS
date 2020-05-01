@@ -5,5 +5,5 @@ target 'HowTo' do
   use_frameworks!
 
   # Pods for HowTo
-
+  pod 'CLTypingLabel'
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CLTypingLabel
 
 enum LogInState {
     case notRegistered
@@ -17,6 +18,7 @@ class OnboardingViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var brandLabel: CLTypingLabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -35,6 +37,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         updateTextFields()
         notLoggedInState()
+        animatedBrand()
     }
 
     // MARK: - IBActions
@@ -133,5 +136,9 @@ class OnboardingViewController: UIViewController {
         OnboardingTextField.styleTextField(usernameTextField)
         OnboardingTextField.styleTextField(passwordTextField)
         passwordTextField.isSecureTextEntry = true
+    }
+
+    private func animatedBrand() {
+        brandLabel.text = "HOWTO"
     }
 }
