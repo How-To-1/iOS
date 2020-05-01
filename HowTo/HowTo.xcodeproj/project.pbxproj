@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C06144A245C423F005E7A04 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C061449245C423F005E7A04 /* NetworkDataLoader.swift */; };
 		2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */; };
 		2C106FCE245900350046A91A /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C106FCD245900350046A91A /* User+Convenience.swift */; };
 		2C43351C2459FB1900485A74 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C43351B2459FB1900485A74 /* UserController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C061449245C423F005E7A04 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
 		2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tutorial+Convenience.swift"; sourceTree = "<group>"; };
 		2C106FCD245900350046A91A /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
 		2C43351B2459FB1900485A74 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C061448245C41D4005E7A04 /* Mocking */ = {
+			isa = PBXGroup;
+			children = (
+				2C061449245C423F005E7A04 /* NetworkDataLoader.swift */,
+			);
+			name = Mocking;
+			sourceTree = "<group>";
+		};
 		2C696FA42458A12000B6BFC9 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 			children = (
 				2C7646D92458AC6A00AE26EB /* Application */,
 				2C7646DA2458AC7D00AE26EB /* Storyboards */,
+				2C061448245C41D4005E7A04 /* Mocking */,
 				2C7646E92458AD0500AE26EB /* Models */,
 				2C7646EA2458AD1700AE26EB /* Views */,
 				2C7646EB2458AD2800AE26EB /* Model Controllers */,
@@ -367,6 +378,7 @@
 				2C433520245A250C00485A74 /* CreateTutorialViewController.swift in Sources */,
 				2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */,
 				2C43351C2459FB1900485A74 /* UserController.swift in Sources */,
+				2C06144A245C423F005E7A04 /* NetworkDataLoader.swift in Sources */,
 				99824F0D2458DF560065AB1B /* CoreDataStack.swift in Sources */,
 				2C106FCC2458E88D0046A91A /* Tutorial+Convenience.swift in Sources */,
 				2C43351E245A1F8600485A74 /* HomeScreenTableViewController.swift in Sources */,

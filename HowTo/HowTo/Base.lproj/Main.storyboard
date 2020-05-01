@@ -90,7 +90,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOWTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srw-6D-bEW" customClass="CLTypingLabel" customModule="CLTypingLabel">
-                                <rect key="frame" x="141.5" y="234" width="131.5" height="67"/>
+                                <rect key="frame" x="207" y="234" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -289,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FUA-kp-H5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6061" y="-354"/>
+            <point key="canvasLocation" x="6060.8695652173919" y="-354.24107142857139"/>
         </scene>
         <!--Create Tutorial View Controller-->
         <scene sceneID="DeX-nZ-wcx">
