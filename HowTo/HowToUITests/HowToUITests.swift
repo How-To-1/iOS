@@ -42,6 +42,10 @@ class HowToUITests: XCTestCase {
         return app.buttons["Register"]
     }
 
+    private var saveButton: XCUIElement {
+        return app.navigationBars["HowTo.CreateTutorialView"].buttons["Save"]
+    }
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
@@ -57,7 +61,7 @@ class HowToUITests: XCTestCase {
         backButton.tap()
     }
 
-    func testLoggingIn() {
+    func testCreateTutorial() {
         addButton.tap()
         usernameTextField.tap()
         usernameTextField.tap()
@@ -67,16 +71,24 @@ class HowToUITests: XCTestCase {
         returnButton.tap()
         signInButton.tap()
 
-        let expectation = XCTestExpectation(description: "Waiting for sign in")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            expectation.fulfill()
-        }
+        app.textFields["What's the title?"].tap()
+        app.typeText("How to Write a UI Test")
 
-        wait(for: [expectation], timeout: 5)
+        app.children(matching: .window)
+            .element(boundBy: 0).children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .textView)
+            .element.tap()
+        app.typeText("Step 1: Write the test")
+        returnButton.tap()
+        saveButton.tap()
     }
 
-    func testAttemptToEditTutorial() {
-
+    func testEditTutorial() {
        addButton.tap()
        usernameTextField.tap()
        usernameTextField.tap()
@@ -107,7 +119,25 @@ class HowToUITests: XCTestCase {
             .element.children(matching: .textView)
             .element.tap()
         app.typeText("edit")
-        howtoCreatetutorialviewNavigationBar.buttons["Save"].tap()
+        saveButton.tap()
+    }
+
+    func testLoggingIn() {
+        addButton.tap()
+        usernameTextField.tap()
+        usernameTextField.tap()
+        usernameTextField.typeText("iOSTest1\n")
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        returnButton.tap()
+        signInButton.tap()
+
+        let expectation = XCTestExpectation(description: "Waiting for sign in")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5)
     }
 
     func testRegisteringUser() {
