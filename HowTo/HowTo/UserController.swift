@@ -12,7 +12,6 @@ import CoreData
 class UserController {
 
     var bearer: Bearer?
-    
     let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
 
     typealias RegisterHandler = (NetworkError?) -> Void

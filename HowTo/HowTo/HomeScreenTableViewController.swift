@@ -44,9 +44,6 @@ class HomeScreenTableViewController: UITableViewController {
 
     // MARK: - Actions
 
-    @IBAction func addButtonTapped(_ sender: Any) {
-    }
-
     func titleView() {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 50, height: 40))
         label.backgroundColor = .clear
@@ -67,13 +64,19 @@ class HomeScreenTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         titleView()
+
+        tutorialController.fetchTutorialFromServer { error in
+            if let error = error {
+                NSLog("Error fetching tutorials: \(error)")
+                return
+            }
+        }
         
         if userController.bearer == nil {
             self.navigationItem.leftBarButtonItem = nil
         } else {
             self.navigationItem.leftBarButtonItem = self.signOutButton
         }
-
     }
 
     // MARK: - Table view data source

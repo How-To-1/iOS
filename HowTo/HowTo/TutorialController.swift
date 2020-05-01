@@ -18,43 +18,70 @@ enum NetworkError: Error {
     case noRep
 }
 
-let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
-
 class TutorialController {
-    
-    typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
 
     var userController: UserController?
-    
-    init() {
-        fetchTutorialFromServer()
+    let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
+    let dataLoader: NetworkDataLoader
+    var tutorials: [TutorialRepresentation] = []
+
+    typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
+
+    init(dataLoader: NetworkDataLoader = URLSession.shared) {
+        self.dataLoader = dataLoader
+    }
+
+    // MARK: - Testing
+
+    private func fetch<T: Codable>(from url: URLRequest,
+                                   using session: URLSession = URLSession.shared,
+                                   completion: @escaping(T?, Error?) -> Void) {
+        dataLoader.loadData(using: url) { data, _, error in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            guard let data = data else {
+                completion(nil, NSError())
+                return
+            }
+
+            do {
+                let decodedJSON = try JSONDecoder().decode(T.self, from: data)
+                completion(decodedJSON, nil)
+            } catch {
+                completion(nil, error)
+            }
+        }
     }
 
     // MARK: - Networking Methods
     
-    func fetchTutorialFromServer(completion: @escaping CompletionHandler = { _ in }) {
+    func fetchTutorialFromServer(completion: @escaping (Error?) -> Void) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
 
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
                 NSLog("Error fetching tutorials: \(error)")
-                completion(.failure(.otherError))
+                completion(error)
                 return
             }
             guard let data = data else {
                 NSLog("No data returned from fetch")
-                completion(.failure(.noData))
+                completion(NSError())
                 return
             }
             
             do {
                 let tutorialRepresentations = try JSONDecoder().decode([TutorialRepresentation].self, from: data)
                 try self.updateTutorials(with: tutorialRepresentations)
+                self.tutorials = tutorialRepresentations
             } catch {
                 NSLog("Error decoding tutorials from server: \(error)")
-                completion(.failure(.noDecode))
+                completion(error)
             }
-            completion(.success(true))
+            completion(nil)
         }.resume()
     }
     
