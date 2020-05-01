@@ -19,6 +19,7 @@
 		2C54E42C245C4EA00026BB87 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */; };
 		2C54E42E245C501D0026BB87 /* TutorialMockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E42D245C501D0026BB87 /* TutorialMockJSON.swift */; };
 		2C54E430245C527C0026BB87 /* UserMockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E42F245C527C0026BB87 /* UserMockJSON.swift */; };
+		2C54E432245C78540026BB87 /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E431245C78540026BB87 /* CreateController.swift */; };
 		2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB02458A12000B6BFC9 /* AppDelegate.swift */; };
 		2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */; };
 		2C696FB82458A12000B6BFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C696FB62458A12000B6BFC9 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		2C54E42D245C501D0026BB87 /* TutorialMockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMockJSON.swift; sourceTree = "<group>"; };
 		2C54E42F245C527C0026BB87 /* UserMockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMockJSON.swift; sourceTree = "<group>"; };
+		2C54E431245C78540026BB87 /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		2C696FAD2458A12000B6BFC9 /* HowTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C696FB02458A12000B6BFC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */,
 				2C54E42D245C501D0026BB87 /* TutorialMockJSON.swift */,
 				2C54E42F245C527C0026BB87 /* UserMockJSON.swift */,
+				2C54E431245C78540026BB87 /* CreateController.swift */,
 				2C54E423245C4E4D0026BB87 /* Info.plist */,
 			);
 			path = HowToTests;
@@ -447,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C54E432245C78540026BB87 /* CreateController.swift in Sources */,
 				2C54E430245C527C0026BB87 /* UserMockJSON.swift in Sources */,
 				2C54E42C245C4EA00026BB87 /* MockDataLoader.swift in Sources */,
 				2C54E42E245C501D0026BB87 /* TutorialMockJSON.swift in Sources */,
