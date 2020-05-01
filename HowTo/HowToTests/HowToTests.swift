@@ -7,27 +7,61 @@
 //
 
 import XCTest
+@testable import HowTo
 
 class HowToTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testFetchingTutorial() {
+        let expectation = XCTestExpectation(description: "Waiting for valid tutorial data...")
+        let tutorialController = TutorialController()
+        let tutorials = tutorialController.tutorials
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        tutorialController.fetchTutorialFromServer { error in
+            if let error = error {
+                XCTFail("Error during fetch: \(error)")
+                return
+            }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+            XCTAssertNotNil(tutorials)
+            expectation.fulfill()
         }
+
+        wait(for: [expectation], timeout: 5)
     }
 
+    func testRegisterUser() {
+        let expectation = XCTestExpectation(description: "Waiting for authentication...")
+        let userController = UserController()
+        let randomNumber = Int.random(in: 500...1_000)
+        let user = UserRepresentation(username: "Tobi\(randomNumber)", password: "password")
+
+        userController.register(user: user) { error in
+            if let error = error {
+                XCTFail("Error registering user: \(error)")
+                return
+            }
+
+            XCTAssertNoThrow(user)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func testRegisteringUserWithExistingDetails() {
+        let expectation = XCTestExpectation(description: "Waiting for authentication...")
+        let userController = UserController()
+
+        let user = UserRepresentation(username: "Tobi", password: "password")
+
+        userController.register(user: user) { error in
+            if let error = error {
+                XCTAssertNotNil(error)
+            }
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 10)
+    }
 }

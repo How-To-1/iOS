@@ -13,18 +13,11 @@ class UserController {
 
     var bearer: Bearer?
     let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
-    let dataLoader: NetworkDataLoader
 
     typealias RegisterHandler = (NetworkError?) -> Void
     typealias SignInHandler = (NetworkError?, Bearer?) -> Void
 
-    init(dataLoader: NetworkDataLoader = URLSession.shared) {
-        self.dataLoader = dataLoader
-    }
-
-    func register(user: UserRepresentation,
-                  using session: URLSession = URLSession.shared,
-                  completion: @escaping RegisterHandler) {
+    func register(user: UserRepresentation, completion: @escaping RegisterHandler) {
         let requestURL = baseURL
             .appendingPathComponent("api")
             .appendingPathComponent("auth")
@@ -44,7 +37,7 @@ class UserController {
             return
         }
 
-        dataLoader.loadData(using: request) { _, response, error in
+        URLSession.shared.dataTask(with: request) { _, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 201 {
                 NSLog("Unexpected status code :\(response.statusCode)")
@@ -59,12 +52,10 @@ class UserController {
             }
 
             completion(nil)
-        }
+        }.resume()
     }
     
-    func signIn(user: UserRepresentation,
-                using session: URLSession = URLSession.shared,
-                completion: @escaping SignInHandler) {
+    func signIn(user: UserRepresentation, completion: @escaping SignInHandler) {
         let requestURL = baseURL
             .appendingPathComponent("api")
             .appendingPathComponent("auth")
@@ -83,8 +74,7 @@ class UserController {
             completion(.noEncode, nil)
             return
         }
-
-        dataLoader.loadData(using: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
                 NSLog("Unexpected status code: \(response.statusCode)")
@@ -96,13 +86,13 @@ class UserController {
                 completion(.noData, nil)
                 return
             }
-
+            
             if let error = error {
                 NSLog("Error retrieving user: \(error)")
                 completion(.otherError, nil)
                 return
             }
-
+            
             do {
                 let bearer = try JSONDecoder().decode(Bearer.self, from: data)
                 self.bearer = bearer
@@ -110,8 +100,7 @@ class UserController {
                 NSLog("Error decoding bearer token: \(error)")
                 completion(.noDecode, nil)
             }
-            
             completion(nil, self.bearer)
-        }
+        }.resume()
     }
 }

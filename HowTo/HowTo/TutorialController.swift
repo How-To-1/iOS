@@ -18,12 +18,12 @@ enum NetworkError: Error {
     case noRep
 }
 
-
 class TutorialController {
 
     var userController: UserController?
     let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
     let dataLoader: NetworkDataLoader
+    var tutorials: [TutorialRepresentation] = []
 
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
 
@@ -31,48 +31,62 @@ class TutorialController {
         self.dataLoader = dataLoader
     }
 
-    //    init() {
-    //        fetchTutorialFromServer()
-    //    }
+    // MARK: - Testing
 
-    // MARK: - Networking Methods
-    
-    func fetchTutorialFromServer(from url: URLRequest,
-                                 using session: URLSession = URLSession.shared,
-                                 completion: @escaping CompletionHandler = { _ in }) {
-        let requestURL = baseURL.appendingPathComponent("api/guides")
-        let request = URLRequest(url: requestURL)
-
-        dataLoader.loadData(using: request) { data, _, error in
+    private func fetch<T: Codable>(from url: URLRequest,
+                                   using session: URLSession = URLSession.shared,
+                                   completion: @escaping(T?, Error?) -> Void) {
+        dataLoader.loadData(using: url) { data, _, error in
             if let error = error {
-                NSLog("Error fetching tutorials: \(error)")
-                completion(.failure(.otherError))
+                completion(nil, error)
                 return
             }
+
             guard let data = data else {
-                NSLog("No data returned from fetch")
-                completion(.failure(.noData))
+                completion(nil, NSError())
                 return
             }
 
             do {
-                let tutorialRepresentations = try JSONDecoder().decode([TutorialRepresentation].self, from: data)
-                try self.updateTutorials(with: tutorialRepresentations)
+                let decodedJSON = try JSONDecoder().decode(T.self, from: data)
+                completion(decodedJSON, nil)
             } catch {
-                NSLog("Error decoding tutorials from server: \(error)")
-                completion(.failure(.noDecode))
+                completion(nil, error)
             }
-
-            completion(.success(true))
         }
     }
+
+    // MARK: - Networking Methods
     
-    func sendTutorialToServer(tutorial: Tutorial,
-                              bearer: Bearer,
-                              using session: URLSession = URLSession.shared,
-                              completion: @escaping (Error?) -> Void = { _ in }) {
+    func fetchTutorialFromServer(completion: @escaping (Error?) -> Void) {
         let requestURL = baseURL.appendingPathComponent("api/guides")
 
+        URLSession.shared.dataTask(with: requestURL) { data, _, error in
+            if let error = error {
+                NSLog("Error fetching tutorials: \(error)")
+                completion(error)
+                return
+            }
+            guard let data = data else {
+                NSLog("No data returned from fetch")
+                completion(NSError())
+                return
+            }
+            
+            do {
+                let tutorialRepresentations = try JSONDecoder().decode([TutorialRepresentation].self, from: data)
+                try self.updateTutorials(with: tutorialRepresentations)
+                self.tutorials = tutorialRepresentations
+            } catch {
+                NSLog("Error decoding tutorials from server: \(error)")
+                completion(error)
+            }
+            completion(nil)
+        }.resume()
+    }
+    
+    func sendTutorialToServer(tutorial: Tutorial, bearer: Bearer, completion: @escaping (Error?) -> Void = { _ in }) {
+        let requestURL = baseURL.appendingPathComponent("api/guides")
         var request = URLRequest(url: requestURL)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(bearer.token, forHTTPHeaderField: "Authorization")
@@ -91,16 +105,15 @@ class TutorialController {
             completion(error)
             return
         }
-
-        dataLoader.loadData(using: request) { _, _, error in
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
             if let error = error {
                 NSLog("Error sending tutorial to server: \(error)")
                 completion(error)
                 return
             }
-
             completion(nil)
-        }
+        }.resume()
     }
     
     func deleteTutorialFromServer(tutorial: Tutorial, completion: @escaping CompletionHandler = { _ in }) {
@@ -114,12 +127,12 @@ class TutorialController {
                 completion(.failure(.otherError))
                 return
             }
-
             completion(.success(true))
-        }
+        }.resume()
     }
     
     func updateTutorials(tutorial: Tutorial, bearer: Bearer, completion: @escaping CompletionHandler = { _ in }) {
+
         let identifier = tutorial.identifier
         
         let requestURL = baseURL
