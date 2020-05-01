@@ -84,6 +84,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CkS-7j-auW">
                                         <rect key="frame" x="0.0" y="74" width="334" height="34"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Play" family="Play" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -153,6 +154,9 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Automotive" translatesAutoresizingMaskIntoConstraints="NO" id="OTF-J3-tk4">
                                             <rect key="frame" x="0.0" y="75" width="414" height="193"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="193" id="hha-oo-2Px"/>
                                             </constraints>
@@ -184,6 +188,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="categoryImage" destination="OTF-J3-tk4" id="X2f-qC-jik"/>
                                     <outlet property="categoryLabel" destination="qMm-xp-dL8" id="ZI8-sJ-G9p"/>
@@ -392,6 +399,6 @@
         <image name="Onboarding" width="3432" height="5145"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ror-H5-URQ"/>
+        <segue reference="sNg-Dr-3E4"/>
     </inferredMetricsTieBreakers>
 </document>

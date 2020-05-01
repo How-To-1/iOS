@@ -38,6 +38,9 @@ class OnboardingViewController: UIViewController {
         updateTextFields()
         notLoggedInState()
         animatedBrand()
+
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     // MARK: - IBActions
@@ -140,5 +143,12 @@ class OnboardingViewController: UIViewController {
 
     private func animatedBrand() {
         brandLabel.text = "HOWTO"
+    }
+}
+
+extension OnboardingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
