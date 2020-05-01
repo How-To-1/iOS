@@ -13,9 +13,14 @@ class UserController {
 
     var bearer: Bearer?
     let baseURL = URL(string: "https://how-to-guide-unit4-build.herokuapp.com/")!
+    let dataLoader: NetworkDataLoader
 
     typealias RegisterHandler = (NetworkError?) -> Void
     typealias SignInHandler = (NetworkError?, Bearer?) -> Void
+
+    init(dataLoader: NetworkDataLoader = URLSession.shared) {
+        self.dataLoader = dataLoader
+    }
 
     func register(user: UserRepresentation, completion: @escaping RegisterHandler) {
         let requestURL = baseURL

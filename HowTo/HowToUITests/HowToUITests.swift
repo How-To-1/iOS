@@ -127,11 +127,13 @@ class HowToUITests: XCTestCase {
     }
 
     func testRegisteringUser() {
+        let randomNumber = Int.random(in: 500...1_000)
         addButton.tap()
-        app.buttons["Register"].tap()
+        XCTAssertTrue(registerButton.waitForExistence(timeout: 0.5))
+        registerButton.tap()
         usernameTextField.tap()
         usernameTextField.tap()
-        usernameTextField.typeText("iOSTest1\n")
+        usernameTextField.typeText("iOSTest\(randomNumber)\n")
         passwordTextField.tap()
         passwordTextField.typeText("password")
         returnButton.tap()
