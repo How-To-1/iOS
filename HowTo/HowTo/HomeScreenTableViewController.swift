@@ -26,10 +26,6 @@ class HomeScreenTableViewController: UITableViewController {
         let fetchRequest: NSFetchRequest<Tutorial> = Tutorial.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
 
-        if searchBar.text != "" {
-            fetchRequest.predicate = NSPredicate(format: "title CONTAINS[c] %@", searchBar.text ?? "")
-        }
-
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,
@@ -123,7 +119,6 @@ class HomeScreenTableViewController: UITableViewController {
     }
     
 }
-
 
 extension HomeScreenTableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

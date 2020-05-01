@@ -30,19 +30,13 @@ class TutorialDetailViewController: UIViewController {
         updateViews()
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func editButtonTapped(_ sender: Any) {
+    // MARK: - Actions
 
-    }
-    
-    
     func updateViews() {
         guard let tutorial = tutorial,
             let category = tutorial.category,
             let userController = userController else { return }
 
-        
         titleLabel.text = tutorial.title
         guideTextView.text = tutorial.guide
         imageView.image = UIImage(named: category)
@@ -51,9 +45,8 @@ class TutorialDetailViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = nil
         } else {
             self.navigationItem.rightBarButtonItem = self.editButton
+        }
     }
-    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowEditTutorialSegue" {
@@ -61,7 +54,7 @@ class TutorialDetailViewController: UIViewController {
                 destinationVC.tutorialController = tutorialController
                 destinationVC.userController = userController
                 if let tutorial = tutorial {
-                destinationVC.tutorial = tutorial
+                    destinationVC.tutorial = tutorial
                 }
             }
         }
