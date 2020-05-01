@@ -11,9 +11,7 @@ import Foundation
 let validTutorialJSON = """
 {
     "title": "How to Test Your Code",
-    "description": "Step 1: Make Sure You Write Correct Code,
-                    Step 2: Test It,
-                    Step 3: Good Luck",
+    "description": "Step 1: Make Sure You Write Correct Code,\nStep 2: Test It,\nStep 3: Good Luck",
     "category": "Computing",
     "guides_id": 1
 }

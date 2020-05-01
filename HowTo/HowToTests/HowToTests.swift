@@ -146,4 +146,38 @@ class HowToTests: XCTestCase {
 
         wait(for: [tutorialExpectation], timeout: 10)
     }
+
+    func testDecodingTutorials() {
+        do {
+            let data = validTutorialJSON
+            let tutorial = try JSONDecoder().decode(TutorialRepresentation.self, from: data)
+            XCTAssertNoThrow(tutorial)
+        } catch {
+            XCTFail("Error decoding tutorial: \(error)")
+        }
+    }
+
+    func testDecodingUser() {
+        var testUser: UserRepresentation?
+
+        do {
+            let data = validUserJSON
+            let user = try JSONDecoder().decode(UserRepresentation.self, from: data)
+            testUser = user
+        } catch {
+            XCTFail("Error decoding user: \(error)")
+        }
+
+        XCTAssertNotNil(testUser)
+    }
+
+    func testDecodingInvalidUser() {
+        do {
+            let data = inValidUserJSON
+            let user = try JSONDecoder().decode(UserRepresentation.self, from: data)
+            XCTAssertThrowsError(user)
+        } catch {
+            XCTAssertNotNil(error)
+        }
+    }
 }
