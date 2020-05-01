@@ -15,6 +15,8 @@
 		2C433520245A250C00485A74 /* CreateTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C43351F245A250C00485A74 /* CreateTutorialViewController.swift */; };
 		2C433524245A67F300485A74 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C433523245A67F300485A74 /* OnboardingViewController.swift */; };
 		2C54E41A245C43680026BB87 /* URLSession+NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E419245C43680026BB87 /* URLSession+NetworkDataLoader.swift */; };
+		2C54E422245C4E4D0026BB87 /* HowToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E421245C4E4D0026BB87 /* HowToTests.swift */; };
+		2C54E42C245C4EA00026BB87 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */; };
 		2C696FB12458A12000B6BFC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB02458A12000B6BFC9 /* AppDelegate.swift */; };
 		2C696FB32458A12000B6BFC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */; };
 		2C696FB82458A12000B6BFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C696FB62458A12000B6BFC9 /* Main.storyboard */; };
@@ -38,6 +40,16 @@
 		EF58345285F435652FE3C695 /* Pods_HowTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59905A12DE78EEA66077DE52 /* Pods_HowTo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2C54E424245C4E4D0026BB87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C696FA52458A12000B6BFC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C696FAC2458A12000B6BFC9;
+			remoteInfo = HowTo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2C061449245C423F005E7A04 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
 		2C106FCB2458E88D0046A91A /* Tutorial+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tutorial+Convenience.swift"; sourceTree = "<group>"; };
@@ -47,6 +59,10 @@
 		2C43351F245A250C00485A74 /* CreateTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialViewController.swift; sourceTree = "<group>"; };
 		2C433523245A67F300485A74 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2C54E419245C43680026BB87 /* URLSession+NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDataLoader.swift"; sourceTree = "<group>"; };
+		2C54E41F245C4E4D0026BB87 /* HowToTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HowToTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C54E421245C4E4D0026BB87 /* HowToTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToTests.swift; sourceTree = "<group>"; };
+		2C54E423245C4E4D0026BB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		2C696FAD2458A12000B6BFC9 /* HowTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C696FB02458A12000B6BFC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C696FB22458A12000B6BFC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +91,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C54E41C245C4E4D0026BB87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C696FAA2458A12000B6BFC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,10 +118,21 @@
 			name = Mocking;
 			sourceTree = "<group>";
 		};
+		2C54E420245C4E4D0026BB87 /* HowToTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C54E421245C4E4D0026BB87 /* HowToTests.swift */,
+				2C54E42B245C4EA00026BB87 /* MockDataLoader.swift */,
+				2C54E423245C4E4D0026BB87 /* Info.plist */,
+			);
+			path = HowToTests;
+			sourceTree = "<group>";
+		};
 		2C696FA42458A12000B6BFC9 = {
 			isa = PBXGroup;
 			children = (
 				2C696FAF2458A12000B6BFC9 /* HowTo */,
+				2C54E420245C4E4D0026BB87 /* HowToTests */,
 				2C696FAE2458A12000B6BFC9 /* Products */,
 				CCA8F8DE3B3B4A5F2147764C /* Pods */,
 				53C092AA3471291C70F0350C /* Frameworks */,
@@ -109,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				2C696FAD2458A12000B6BFC9 /* HowTo.app */,
+				2C54E41F245C4E4D0026BB87 /* HowToTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +275,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2C54E41E245C4E4D0026BB87 /* HowToTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C54E426245C4E4D0026BB87 /* Build configuration list for PBXNativeTarget "HowToTests" */;
+			buildPhases = (
+				2C54E41B245C4E4D0026BB87 /* Sources */,
+				2C54E41C245C4E4D0026BB87 /* Frameworks */,
+				2C54E41D245C4E4D0026BB87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C54E425245C4E4D0026BB87 /* PBXTargetDependency */,
+			);
+			name = HowToTests;
+			productName = HowToTests;
+			productReference = 2C54E41F245C4E4D0026BB87 /* HowToTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2C696FAC2458A12000B6BFC9 /* HowTo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C696FC12458A12200B6BFC9 /* Build configuration list for PBXNativeTarget "HowTo" */;
@@ -270,6 +323,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Tobi Kuyoro";
 				TargetAttributes = {
+					2C54E41E245C4E4D0026BB87 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 2C696FAC2458A12000B6BFC9;
+					};
 					2C696FAC2458A12000B6BFC9 = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -289,11 +346,19 @@
 			projectRoot = "";
 			targets = (
 				2C696FAC2458A12000B6BFC9 /* HowTo */,
+				2C54E41E245C4E4D0026BB87 /* HowToTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2C54E41D245C4E4D0026BB87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C696FAB2458A12000B6BFC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +437,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2C54E41B245C4E4D0026BB87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C54E42C245C4EA00026BB87 /* MockDataLoader.swift in Sources */,
+				2C54E422245C4E4D0026BB87 /* HowToTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C696FA92458A12000B6BFC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,6 +474,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2C54E425245C4E4D0026BB87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C696FAC2458A12000B6BFC9 /* HowTo */;
+			targetProxy = 2C54E424245C4E4D0026BB87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		2C696FB62458A12000B6BFC9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -420,6 +502,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2C54E427245C4E4D0026BB87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W485VTCC9R;
+				GCC_DYNAMIC_NO_PIC = NO;
+				INFOPLIST_FILE = HowToTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tobikuyoro.HowToTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowTo.app/HowTo";
+			};
+			name = Debug;
+		};
+		2C54E428245C4E4D0026BB87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W485VTCC9R;
+				INFOPLIST_FILE = HowToTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tobikuyoro.HowToTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HowTo.app/HowTo";
+			};
+			name = Release;
+		};
 		2C696FBF2458A12200B6BFC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -580,6 +703,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C54E426245C4E4D0026BB87 /* Build configuration list for PBXNativeTarget "HowToTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C54E427245C4E4D0026BB87 /* Debug */,
+				2C54E428245C4E4D0026BB87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2C696FA82458A12000B6BFC9 /* Build configuration list for PBXProject "HowTo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
