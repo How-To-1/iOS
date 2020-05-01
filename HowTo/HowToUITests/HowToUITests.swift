@@ -97,13 +97,6 @@ class HowToUITests: XCTestCase {
        passwordTextField.typeText("password")
        returnButton.tap()
        signInButton.tap()
-
-       let expectation = XCTestExpectation(description: "Waiting for sign in")
-       DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-           expectation.fulfill()
-       }
-
-       wait(for: [expectation], timeout: 5)
         
         let howtoCreatetutorialviewNavigationBar = app.navigationBars["HowTo.CreateTutorialView"]
         howtoCreatetutorialviewNavigationBar.buttons["Back"].tap()
@@ -131,13 +124,6 @@ class HowToUITests: XCTestCase {
         passwordTextField.typeText("password")
         returnButton.tap()
         signInButton.tap()
-
-        let expectation = XCTestExpectation(description: "Waiting for sign in")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 5)
     }
 
     func testRegisteringUser() {
@@ -150,12 +136,5 @@ class HowToUITests: XCTestCase {
         passwordTextField.typeText("password")
         returnButton.tap()
         signUpButton.tap()
-
-        let expectation = XCTestExpectation(description: "Waiting for sign in")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 5)
     }
 }
